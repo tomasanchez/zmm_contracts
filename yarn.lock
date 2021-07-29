@@ -119,6 +119,11 @@
   optionalDependencies:
     keytar "7.7.0"
 
+"@sapui5/ts-types@^1.90.3":
+  version "1.90.3"
+  resolved "http://nginx-redirector.repo-cache.svc.cluster.local/repository/appstudio-npm-group/@sapui5/ts-types/-/ts-types-1.90.3.tgz#0e014211b7ec9d25f7fcf6d5b19d0aea0aa8a13c"
+  integrity sha512-Amf7jZASaVTQMQtifbFuxf6DaSTYMdA9f25OVySzG4NHBu/s9OsVShrfjm8TLiAnk/bZMgFJ94B53OfvatfILA==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "http://nginx-redirector.repo-cache.svc.cluster.local/repository/appstudio-npm-group/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -6055,6 +6060,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "http://nginx-redirector.repo-cache.svc.cluster.local/repository/appstudio-npm-group/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^4.3.5:
+  version "4.3.5"
+  resolved "http://nginx-redirector.repo-cache.svc.cluster.local/repository/appstudio-npm-group/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
+  integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
 uc.micro@^1.0.1, uc.micro@^1.0.5:
   version "1.0.6"
