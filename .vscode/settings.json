@@ -1,4 +1,5 @@
 {
     "actions": [],
-    "[xml].editor.defaultFormatter": "dotjoshjohnson.xml"
+    "[xml].editor.defaultFormatter": "dotjoshjohnson.xml",
+    "[json].editor.defaultFormatter": "esbenp.prettier-vscode"
 }
