@@ -28,9 +28,8 @@
     "release:major": "standard-version --release-as major"
   },
   "devDependencies": {
-    "@sap/ui5-builder-webide-extension": "1.0.x",
+    "@sap/ui5-builder-webide-extension": "^1.1.6",
     "@sap/ux-ui5-tooling": "1",
-    "@sapui5/ts-types": "^1.90.3",
     "@ui5/cli": "^2.11.1",
     "@ui5/fs": "^2.0.6",
     "@ui5/logger": "^2.0.1",
