@@ -65,8 +65,7 @@
             </l:VerticalLayout>
         </semantic:content>
         <semantic:footerCustomActions>
-
-            <Button text="{i18n>boton_mostrar_ariba_label}" type="Emphasized"/>
+            <Button text="{i18n>boton_mostrar_ariba_label}" type="Emphasized" press=".onAriba" />
         </semantic:footerCustomActions>
 
 
