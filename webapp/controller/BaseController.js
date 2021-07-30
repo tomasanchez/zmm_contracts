@@ -171,7 +171,13 @@ sap.ui.define(
          * @author Tomas A Sanchez
          * @since 07.30.2021
          */
-        openDialog: function (sName, updateModelAlways, callback, data) {
+        openDialog: function (
+          sName,
+          model = undefined,
+          updateModelAlways = false,
+          callback = undefined,
+          data = {}
+        ) {
           /**
            * the View name-space path
            * @type {string}
