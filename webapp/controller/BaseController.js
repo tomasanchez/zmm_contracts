@@ -251,7 +251,7 @@ sap.ui.define(
          * @param {string} fragment name
          */
         getFragment: function (fragment) {
-          return _fragments[this.getView().getId() + "-" + fragment];
+          return _fragments[`${this.getView().getId()}-${fragment}`];
         },
 
         /**
@@ -268,7 +268,7 @@ sap.ui.define(
           ];
           return sap.ui
             .getCore()
-            .byId(parent.getView().getId() + "-" + latest + "--" + id);
+            .byId(`${parent.getView().getId()}-${latest}--${id}`);
         },
 
         /**
