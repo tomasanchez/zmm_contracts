@@ -1,24 +1,29 @@
 <mvc:View controllerName="pampa.comunicacionesformales.contratos.controller.Object"
 	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
-
-	<semantic:SemanticPage id="page" headerPinnable="false" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
-
-		<semantic:titleHeading>
-			<Title text="{Maktx}" level="H2"/>
-		</semantic:titleHeading>
-
-		<semantic:headerContent>
-			<ObjectNumber
-			/>
-		</semantic:headerContent>
-
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-		</semantic:sendEmailAction>
-
-
-	</semantic:SemanticPage>
-
+	xmlns:tnt="sap.tnt"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:f="sap.f"
+	xmlns:mvc="sap.ui.core.mvc">
+		<!-- Framed DynamicPage -->
+		<f:DynamicPage id="dynamicPageId" preserveHeaderStateOnScroll="true" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" backgroundDesign="List"  title="{i18n>objectViewTitle}" headerExpanded="{/headerExpanded}" showFooter="false" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding">
+			<!-- DynamicPage Title -->	
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="{Maktx}" level="H2"/>
+					</f:heading>
+					<f:breadcrumbs>
+						<Breadcrumbs  currentLocationText="{Maktx}" >
+							<Link text="Home"  press=".onNavBack" />
+						</Breadcrumbs>
+					</f:breadcrumbs>
+				</f:DynamicPageTitle>
+			</f:title>
+			<!-- DynamicPage Header -->
+			<f:header >
+				<f:DynamicPageHeader pinnable="false">
+					<Title text="{Maktx}" level="H2"/>
+				</f:DynamicPageHeader>
+			</f:header>
+		</f:DynamicPage>
 </mvc:View>
