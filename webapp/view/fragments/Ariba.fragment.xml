@@ -15,7 +15,7 @@
 							</Column>
 						</columns>
 						<items>
-							<ColumnListItem type="Navigation" press=".onPress">
+							<ColumnListItem type="Active" press="onContractSelection">
 								<cells>
 									<ObjectIdentifier title="{Maktx}"/>
 								</cells>
