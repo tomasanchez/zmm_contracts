@@ -1,13 +1,13 @@
-<mvc:View controllerName="pampa.comunicacionesformales.contratos.controller.Worklist"
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core"
-    xmlns:l="sap.ui.layout"
-    xmlns:fb="sap.ui.comp.filterbar"
-    xmlns:f="sap.f"
-    xmlns:semantic="sap.f.semantic">
-    <f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
-        <!-- DynamicPage Title -->
+<mvc:View controllerName="pampa.comunicacionesformales.contratos.controller.Worklist" 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:fb="sap.ui.comp.filterbar" 
+	xmlns:f="sap.f" 
+	xmlns:semantic="sap.f.semantic">
+	<f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
+		<!-- DynamicPage Title -->
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
@@ -21,66 +21,64 @@
 				</f:actions>
 			</f:DynamicPageTitle>
 		</f:title>
-        <!-- DynamicPage Header -->
+		<!-- DynamicPage Header -->
 		<f:header>
 			<f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
 				<f:content>
-				<!-- Filters -->
-                <fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
-                    <fb:filterGroupItems>
-                        <fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
-                            <fb:control>
-                                <Input type="Text"/>
-                            </fb:control>
-                        </fb:FilterGroupItem>
-
-                        <fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
-                            <fb:control>
-                                <Input type="Text"/>
-                            </fb:control>
-                        </fb:FilterGroupItem>
-                    </fb:filterGroupItems>
-                </fb:FilterBar>
+					<!-- Filters -->
+					<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
+								<fb:control>
+									<Input type="Text"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
+								<fb:control>
+									<Input type="Text"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+						</fb:filterGroupItems>
+					</fb:FilterBar>
 				</f:content>
 			</f:DynamicPageHeader>
 		</f:header>
-        <!-- DynamicPage Content -->
-        <f:content>
-            <IconTabBar id="idIconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}">
-                    <items>
-                        <IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="0" text="{i18n>contratos_activos_label}" key="Activos" />
-                        <IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="0" text="{i18n>contratos_finalizados_label}" key="Finalizados" />
-                        <!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
-                    </items>
-                    <content>
-                        <VBox width="100%" direction="Column" id="__vbox1">
-                        <Table id="table" width="auto" items="{path: '/Material_ListSet', sorter: {path: 'Maktx', descending: false }}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
-                            <columns>
-                                <Column id="nameColumn">
-                                    <Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
-                                </Column>
-                            </columns>
-                            <items>
-                                <ColumnListItem type="Navigation" press=".onPress">
-                                    <cells>
-                                        <ObjectIdentifier title="{Maktx}"/>
-
-                                    </cells>
-                                </ColumnListItem>
-                            </items>
-                        </Table>
-                    </VBox>
-                    </content>
-                </IconTabBar>
-        </f:content>
-        <!-- DynamicPage Footer-->
-        <f:footer>
-            <OverflowToolbar>
-                <content>
-                    <ToolbarSpacer/>
-                    <Button text="{i18n>boton_mostrar_ariba_label}" type="Emphasized" press=".onAriba" />
-                </content>
-            </OverflowToolbar>
-        </f:footer>
-    </f:DynamicPage>
+		<!-- DynamicPage Content -->
+		<f:content>
+			<IconTabBar id="idIconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}">
+				<items>
+					<IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="0" text="{i18n>contratos_activos_label}" key="Activos" />
+					<IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="0" text="{i18n>contratos_finalizados_label}" key="Finalizados" />
+					<!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
+				</items>
+				<content>
+					<VBox width="100%" direction="Column" id="__vbox1">
+						<Table id="table" width="auto" items="{path: '/Material_ListSet', sorter: {path: 'Maktx', descending: false }}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
+							<columns>
+								<Column id="nameColumn">
+									<Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation" press=".onPress">
+									<cells>
+										<ObjectIdentifier title="{Maktx}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</VBox>
+				</content>
+			</IconTabBar>
+		</f:content>
+		<!-- DynamicPage Footer-->
+		<f:footer>
+			<OverflowToolbar>
+				<content>
+					<ToolbarSpacer/>
+					<Button text="{i18n>boton_mostrar_ariba_label}" type="Emphasized" press=".onAriba" />
+				</content>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
 </mvc:View>
