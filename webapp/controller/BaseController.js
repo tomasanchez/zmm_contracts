@@ -221,7 +221,10 @@ sap.ui.define(
                   data
                 );
               });
-          } else _fragments[id].fragment.open();
+          } else {
+            _fragments[id].controller.onUpdateDate(data);
+            _fragments[id].fragment.open();
+          }
         },
 
         /**
