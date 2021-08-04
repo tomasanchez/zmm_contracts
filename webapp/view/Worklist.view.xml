@@ -28,14 +28,28 @@
 					<!-- Filters -->
 					<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
 						<fb:filterGroupItems>
+							<!-- Contract Input Filter -->
 							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
+								<fb:control>
+									<Input type="Number"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<!-- Provider Input Filter -->
+							<fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
 								<fb:control>
 									<Input type="Text"/>
 								</fb:control>
 							</fb:FilterGroupItem>
-							<fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
+							<!-- Position Select Filter -->
+							<fb:FilterGroupItem groupName="G1" name="C1" label="{i18n>positionLabel}" visibleInFilterBar="true">
 								<fb:control>
-									<Input type="Text"/>
+									<Select selectedKey="&quot;&quot;" forceSelection="true" change=".onSearch">
+										<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+										<core:Item key="Pendiente" text="{i18n>pending}"/>
+										<core:Item key="En Preparacion" text="{i18n>inPreparation}"/>
+										<core:Item key="Preparado" text="{i18n>prepared}"/>
+										<core:Item key="Parcialmente Entregado" text="{i18n>parciallyDelivered}"/>
+									</Select>
 								</fb:control>
 							</fb:FilterGroupItem>
 						</fb:filterGroupItems>
