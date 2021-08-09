@@ -1,29 +1,29 @@
-<mvc:View controllerName="pampa.comunicacionesformales.contratos.controller.Object" 
-	xmlns="sap.m" 
-	xmlns:tnt="sap.tnt" 
-	xmlns:semantic="sap.m.semantic" 
-	xmlns:f="sap.f" 
-	xmlns:mvc="sap.ui.core.mvc">
-	<!-- Framed DynamicPage -->
-	<f:DynamicPage id="dynamicPageId" preserveHeaderStateOnScroll="true" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" backgroundDesign="List" title="{i18n>objectViewTitle}" headerExpanded="{/headerExpanded}" showFooter="false" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding">
-		<!-- DynamicPage Title -->
-		<f:title>
-			<f:DynamicPageTitle>
-				<f:heading>
-					<Title text="{Maktx}" level="H2"/>
-				</f:heading>
-				<f:breadcrumbs>
-					<Breadcrumbs currentLocationText="{Maktx}">
-						<Link text="Home" press=".onNavBack" />
-					</Breadcrumbs>
-				</f:breadcrumbs>
-			</f:DynamicPageTitle>
-		</f:title>
-		<!-- DynamicPage Header -->
-		<f:header >
-			<f:DynamicPageHeader pinnable="false">
-				<Title text="{Maktx}" level="H2"/>
-			</f:DynamicPageHeader>
-		</f:header>
-	</f:DynamicPage>
+<mvc:View controllerName="pampa.comunicacionesformales.contratos.controller.Object"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:semantic="sap.m.semantic"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc">
+    <!-- Framed DynamicPage -->
+    <f:DynamicPage id="dynamicPageId" preserveHeaderStateOnScroll="true" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" backgroundDesign="List" headerExpanded="{/headerExpanded}" showFooter="false" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding">
+        <!-- DynamicPage Title -->
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{IdContrato}" level="H2"/>
+                </f:heading>
+                <f:breadcrumbs>
+                    <Breadcrumbs currentLocationText="{IdContrato}">
+                        <Link text="Home" press=".onNavBack" />
+                    </Breadcrumbs>
+                </f:breadcrumbs>
+            </f:DynamicPageTitle>
+        </f:title>
+        <!-- DynamicPage Header -->
+        <f:header >
+            <f:DynamicPageHeader pinnable="false">
+                <Title text="{IdContrato}" level="H2"/>
+            </f:DynamicPageHeader>
+        </f:header>
+    </f:DynamicPage>
 </mvc:View>
