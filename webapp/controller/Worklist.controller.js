@@ -36,8 +36,9 @@ sap.ui.define(
 
           // Model used to manipulate control states
           oViewModel = new JSONModel({
-            worklistTableTitle:
-              this.getResourceBundle().getText("worklistTableTitle"),
+            worklistTableTitle: this.getResourceBundle().getText(
+              "worklistTableTitle"
+            ),
             shareOnJamTitle: this.getResourceBundle().getText("worklistTitle"),
             shareSendEmailSubject: this.getResourceBundle().getText(
               "shareSendEmailWorklistSubject"
@@ -46,8 +47,9 @@ sap.ui.define(
               "shareSendEmailWorklistMessage",
               [location.href]
             ),
-            tableNoDataText:
-              this.getResourceBundle().getText("tableNoDataText"),
+            tableNoDataText: this.getResourceBundle().getText(
+              "tableNoDataText"
+            ),
             tableBusyDelay: 0,
           });
           this.setModel(oViewModel, "worklistView");
@@ -161,7 +163,7 @@ sap.ui.define(
          */
         _showObject: function (oItem) {
           this.getRouter().navTo("object", {
-            objectId: oItem.getBindingContext().getProperty("Matnr"),
+            objectId: oItem.getBindingContext().getProperty("IdContrato"),
           });
         },
 
