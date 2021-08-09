@@ -164,19 +164,19 @@ sap.ui.define(
          * Convenince method for openning a Dialog Fragment with a controller.
          * @public
          * @param {string} sName the fragment name
+         * @param {object} data passed from the main view to the fragment
          * @param {sap.ui.mvc.Model} model to be set(optional)
          * @param {boolean} updateModelAllways let the function know if it has to update the model every time it opens the dialog or only the first time.
          * @param {function} callbak a function in the controller from where it’s called which can be executed from the fragment controller
-         * @param {object} data passed from the main view to the fragment
          * @author Tomas A Sanchez
          * @since 07.30.2021
          */
         openDialog: function (
           sName,
+          data = {},
           model = undefined,
           updateModelAlways = false,
-          callback = undefined,
-          data = {}
+          callback = undefined
         ) {
           /**
            * the View name-space path
@@ -221,7 +221,10 @@ sap.ui.define(
                   data
                 );
               });
-          } else _fragments[id].fragment.open();
+          } else {
+            _fragments[id].controller.onUpdateData(data);
+            _fragments[id].fragment.open();
+          }
         },
 
         /**
@@ -356,7 +359,7 @@ sap.ui.define(
                     }
                     if (oController && oController !== this) {
                       _fragments[sID].controller.onBeforeShow(
-                        oController,
+                        this,
                         fragment,
                         callback,
                         data

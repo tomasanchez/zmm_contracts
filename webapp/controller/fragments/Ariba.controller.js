@@ -18,7 +18,7 @@ sap.ui.define(
     var oController;
     var aInputs;
     return BaseController.extend(
-      "com.daimler.gad.zgad_almacen.controller.fragments.Edit",
+      "pampa.comunicacionesformales.contratos.controller.fragments.Ariba",
       {
         /* =========================================================== */
         /* lifecycle methods */
@@ -51,6 +51,7 @@ sap.ui.define(
         /* =========================================================== */
         /* event handlers                                              */
         /* =========================================================== */
+
         onClose: function () {
           //this._clear();
           this.callback?.call(this.parent);
@@ -73,6 +74,13 @@ sap.ui.define(
 
           return;
         },
+
+        onContractSelection(oEvent) {
+          var oData = oEvent.getSource().getBindingContext().getObject();
+
+          this.parent.openDialog("AddAriba");
+        },
+
         /* =========================================================== */
         /* internal methods                                            */
         /* =========================================================== */
