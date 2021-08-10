@@ -2,5 +2,5 @@
     "actions": [],
     "[xml].editor.defaultFormatter": "dotjoshjohnson.xml",
     "[json].editor.defaultFormatter": "esbenp.prettier-vscode",
-    "[javascript].editor.defaultFormatter": "esbenp.prettier-vscode"
+    "ui5ts.manifestlocation": "webapp/manifest.json"
 }
