@@ -11,11 +11,22 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="{i18n>worklistTitle}"/>
+					<Title text="{i18n>aribaTitle}"/>
 				</f:heading>
 				<f:snappedTitleOnMobile>
-					<Title text="{i18n>appDescription}"/>
+					<Title text="{i18n>aribaTitle}"/>
 				</f:snappedTitleOnMobile>
+				<f:breadcrumbs>
+					<Breadcrumbs currentLocationText="Ariba">
+						<Link text="{i18n>home}" press=".onNavBack" />
+					</Breadcrumbs>
+				</f:breadcrumbs>
+				<f:expandedContent>
+					<Label text="{i18n>aribaSubtitle}"/>
+				</f:expandedContent>
+				<f:snappedContent>
+					<Label text="{i18n>aribaSubtitle}"/>
+				</f:snappedContent>
 				<f:actions>
 					<ToolbarSpacer/>
 				</f:actions>
@@ -65,13 +76,6 @@
 			</VBox>
 		</f:content>
 		<!-- DynamicPage Footer-->
-		<f:footer>
-			<OverflowToolbar>
-				<content>
-					<ToolbarSpacer/>
-					<Button text="{i18n>boton_mostrar_ariba_label}" type="Emphasized" press=".onAriba"/>
-				</content>
-			</OverflowToolbar>
-		</f:footer>
+		<f:footer/>
 	</f:DynamicPage>
 </mvc:View>
