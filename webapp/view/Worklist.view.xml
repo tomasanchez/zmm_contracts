@@ -50,7 +50,7 @@
         <!-- DynamicPage Content -->
         <f:content>
             <!-- Tab Filter -->
-            <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}" selectedKey="A">
+            <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop"  expandable="false"  expanded="{device>/isNoPhone}" selectedKey="A">
                 <items>
                     <IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="0" text="{i18n>contratos_activos_label}" key="A"/>
                     <IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="0" text="{i18n>contratos_finalizados_label}" key="F"/>

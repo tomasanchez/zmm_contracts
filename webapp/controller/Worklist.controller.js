@@ -45,9 +45,8 @@ sap.ui.define(
 
           // Model used to manipulate control states
           oViewModel = new JSONModel({
-            worklistTableTitle: this.getResourceBundle().getText(
-              "worklistTableTitle"
-            ),
+            worklistTableTitle:
+              this.getResourceBundle().getText("worklistTableTitle"),
             shareOnJamTitle: this.getResourceBundle().getText("worklistTitle"),
             shareSendEmailSubject: this.getResourceBundle().getText(
               "shareSendEmailWorklistSubject"
@@ -56,9 +55,8 @@ sap.ui.define(
               "shareSendEmailWorklistMessage",
               [location.href]
             ),
-            tableNoDataText: this.getResourceBundle().getText(
-              "tableNoDataText"
-            ),
+            tableNoDataText:
+              this.getResourceBundle().getText("tableNoDataText"),
             tableBusyDelay: 0,
           });
           this.setModel(oViewModel, "worklistView");
@@ -188,17 +186,21 @@ sap.ui.define(
           });
         },
 
+        /**
+         * Updates the selected item in BACKEND.
+         * @param {string} sPath the entity's path to update
+         * @param {object} oData the entity itself
+         * @private
+         */
         _updateObject: function (sPath, oData) {
-          this.getModel()
-            .update(sPath, oData, {
-              success: function (oResponse) {
-                MessageToast.show(this.readFromI18n("okUpdate"));
-              },
-              error: function (oError) {
-                MessageBox.error(oError);
-              },
-            })
-            .bind(this);
+          this.getModel().update(sPath, oData, {
+            success: function (oResponse) {
+              MessageToast.show(this.readFromI18n("okUpdate"));
+            }.bind(this),
+            error: function (oError) {
+              MessageBox.error(oError);
+            },
+          });
         },
 
         /**
