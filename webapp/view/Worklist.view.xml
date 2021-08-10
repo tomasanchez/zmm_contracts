@@ -39,42 +39,6 @@
                                     <Input type="Text"/>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <!-- Position Select Filter -->
-                            <fb:FilterGroupItem groupName="G1" name="C1" label="{i18n>positionLabel}" visibleInFilterBar="true">
-                                <fb:control>
-                                    <Select selectedKey="&quot;&quot;" forceSelection="true" change=".onSearch">
-                                        <core:Item key="&quot;&quot;" text="{i18n>all}"/>
-                                        <core:Item key="Pendiente" text="{i18n>pending}"/>
-                                        <core:Item key="En Preparacion" text="{i18n>inPreparation}"/>
-                                        <core:Item key="Preparado" text="{i18n>prepared}"/>
-                                        <core:Item key="Parcialmente Entregado" text="{i18n>parciallyDelivered}"/>
-                                    </Select>
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <!-- Position Select Filter -->
-                            <fb:FilterGroupItem groupName="G1" name="C2" label="{i18n>categoryLabel}" visibleInFilterBar="true">
-                                <fb:control>
-                                    <Select selectedKey="&quot;&quot;" forceSelection="true" change=".onSearch">
-                                        <core:Item key="&quot;&quot;" text="{i18n>all}"/>
-                                    </Select>
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <!-- Position Select Filter -->
-                            <fb:FilterGroupItem groupName="G1" name="C3" label="{i18n>typologyLabel}" visibleInFilterBar="true">
-                                <fb:control>
-                                    <Select selectedKey="&quot;&quot;" forceSelection="true" change=".onSearch">
-                                        <core:Item key="&quot;&quot;" text="{i18n>all}"/>
-                                    </Select>
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <!-- Position Select Filter -->
-                            <fb:FilterGroupItem groupName="G1" name="C4" label="{i18n>riskLevelLabel}" visibleInFilterBar="true">
-                                <fb:control>
-                                    <Select selectedKey="&quot;&quot;" forceSelection="true" change=".onSearch">
-                                        <core:Item key="&quot;&quot;" text="{i18n>all}"/>
-                                    </Select>
-                                </fb:control>
-                            </fb:FilterGroupItem>
                         </fb:filterGroupItems>
                     </fb:FilterBar>
                 </f:content>
