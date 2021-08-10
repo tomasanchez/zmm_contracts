@@ -3,12 +3,21 @@ sap.ui.define(
     "./BaseController",
     "sap/ui/model/json/JSONModel",
     "../model/formatter",
+    "sap/m/MessageToast",
+    "sap/m/MessageBox",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
   ],
-  function (BaseController, JSONModel, formatter, Filter, FilterOperator) {
+  function (
+    BaseController,
+    JSONModel,
+    formatter,
+    MessageToast,
+    MessageBox,
+    Filter,
+    FilterOperator
+  ) {
     "use strict";
-
     return BaseController.extend(
       "pampa.comunicacionesformales.contratos.controller.Worklist",
       {
@@ -36,8 +45,9 @@ sap.ui.define(
 
           // Model used to manipulate control states
           oViewModel = new JSONModel({
-            worklistTableTitle:
-              this.getResourceBundle().getText("worklistTableTitle"),
+            worklistTableTitle: this.getResourceBundle().getText(
+              "worklistTableTitle"
+            ),
             shareOnJamTitle: this.getResourceBundle().getText("worklistTitle"),
             shareSendEmailSubject: this.getResourceBundle().getText(
               "shareSendEmailWorklistSubject"
@@ -46,8 +56,9 @@ sap.ui.define(
               "shareSendEmailWorklistMessage",
               [location.href]
             ),
-            tableNoDataText:
-              this.getResourceBundle().getText("tableNoDataText"),
+            tableNoDataText: this.getResourceBundle().getText(
+              "tableNoDataText"
+            ),
             tableBusyDelay: 0,
           });
           this.setModel(oViewModel, "worklistView");
@@ -103,6 +114,18 @@ sap.ui.define(
         onPress: function (oEvent) {
           // The source is the list item that got pressed
           this._showObject(oEvent.getSource());
+        },
+
+        /**
+         * Event handler when close action is pressed
+         * @param {sap.ui.base.Event} oEvent the button press
+         * @public
+         */
+        onCloseContract: function (oEvent) {
+          this._updateObject(
+            oEvent.getSource().getParent().getBindingContextPath(),
+            oEvent.getSource().getParent().getBindingContext().getObject()
+          );
         },
 
         /**
@@ -163,6 +186,19 @@ sap.ui.define(
           this.getRouter().navTo("object", {
             objectId: oItem.getBindingContext().getProperty("IdContrato"),
           });
+        },
+
+        _updateObject: function (sPath, oData) {
+          this.getModel()
+            .update(sPath, oData, {
+              success: function (oResponse) {
+                MessageToast.show(this.readFromI18n("okUpdate"));
+              },
+              error: function (oError) {
+                MessageBox.error(oError);
+              },
+            })
+            .bind(this);
         },
 
         /**
