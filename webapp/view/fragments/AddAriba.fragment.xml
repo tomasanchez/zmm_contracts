@@ -7,8 +7,28 @@
 	<Dialog title="{i18n>aribaDialogTitle}" id="aribaDialog">
 		<l:Grid defaultSpan="L12 M12 S12" width="auto" id="idGrid">
 			<l:content>
-				<Label text="test" />
-				<Input placeholder="this is a test" />
+				<VBox class="sapUiSmallMargin">
+					<f:SimpleForm id="SimpleFormDisplay354" editable="true" layout="ResponsiveGridLayout" title="{i18n>aribaFormTitle}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+						<f:content>
+							<Label id="categoryLabel" text="{/#Contratos/CatInterna/@sap:label}" />
+							<Select id="categorySelect" ariaLabelledBy="categoryLabel" selectedKey="&quot;&quot;" forceSelection="true">
+								<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+							</Select>
+							<Label id="positionLabel" text="{/#Contratos/Planta/@sap:label}" />
+							<Select id="positionSelect" ariaLabelledBy="positionLabel" selectedKey="&quot;&quot;" forceSelection="true">
+								<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+							</Select>
+							<Label id="riskLevelLabel" text="{/#Contratos/NivelRiesgo/@sap:label}" />
+							<Select id="riskLevelSelect" ariaLabelledBy="riskLevelLabel" selectedKey="&quot;&quot;" forceSelection="true">
+								<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+							</Select>
+							<Label id="typologyLabel" text="{/#Contratos/TipologiaContrato/@sap:label}" />
+							<Select id="typologySelect" ariaLabelledBy="typologyLabel" selectedKey="&quot;&quot;" forceSelection="true">
+								<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+							</Select>
+						</f:content>
+					</f:SimpleForm>
+				</VBox>
 			</l:content>
 		</l:Grid>
 		<buttons>
