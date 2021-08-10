@@ -36,9 +36,8 @@ sap.ui.define(
 
           // Model used to manipulate control states
           oViewModel = new JSONModel({
-            worklistTableTitle: this.getResourceBundle().getText(
-              "worklistTableTitle"
-            ),
+            worklistTableTitle:
+              this.getResourceBundle().getText("worklistTableTitle"),
             shareOnJamTitle: this.getResourceBundle().getText("worklistTitle"),
             shareSendEmailSubject: this.getResourceBundle().getText(
               "shareSendEmailWorklistSubject"
@@ -47,9 +46,8 @@ sap.ui.define(
               "shareSendEmailWorklistMessage",
               [location.href]
             ),
-            tableNoDataText: this.getResourceBundle().getText(
-              "tableNoDataText"
-            ),
+            tableNoDataText:
+              this.getResourceBundle().getText("tableNoDataText"),
             tableBusyDelay: 0,
           });
           this.setModel(oViewModel, "worklistView");
@@ -130,7 +128,7 @@ sap.ui.define(
 
             if (sQuery && sQuery.length > 0) {
               aTableSearchState = [
-                new Filter("Maktx", FilterOperator.Contains, sQuery),
+                new Filter("IdContrato", FilterOperator.Contains, sQuery),
               ];
             }
             this._applySearch(aTableSearchState);
@@ -148,7 +146,7 @@ sap.ui.define(
         },
 
         onAriba: function (oEvent) {
-          this.openDialog("Ariba");
+          this.getRouter().navTo("ariba");
         },
 
         /* =========================================================== */
