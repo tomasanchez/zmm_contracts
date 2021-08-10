@@ -82,10 +82,11 @@
         </f:header>
         <!-- DynamicPage Content -->
         <f:content>
-            <IconTabBar id="idIconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}">
+            <!-- Tab Filter -->
+            <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}">
                 <items>
-                    <IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="0" text="{i18n>contratos_activos_label}" key="Activos"/>
-                    <IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="0" text="{i18n>contratos_finalizados_label}" key="Finalizados"/>
+                    <IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="0" text="{i18n>contratos_activos_label}" key="A"/>
+                    <IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="0" text="{i18n>contratos_finalizados_label}" key="F"/>
                     <!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
                 </items>
                 <content>
