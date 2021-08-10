@@ -1,90 +1,93 @@
-<mvc:View 
-	xmlns="sap.m" 
-	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns:core="sap.ui.core" 
-	xmlns:l="sap.ui.layout" 
-	xmlns:fb="sap.ui.comp.filterbar" 
-	xmlns:f="sap.f" 
-	xmlns:semantic="sap.f.semantic" controllerName="pampa.comunicacionesformales.contratos.controller.Worklist">
-	<f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
-		<!-- DynamicPage Title -->
-		<f:title>
-			<f:DynamicPageTitle>
-				<f:heading>
-					<Title text="{i18n>worklistTitle}"/>
-				</f:heading>
-				<f:snappedTitleOnMobile>
-					<Title text="{i18n>appDescription}"/>
-				</f:snappedTitleOnMobile>
-				<f:breadcrumbs>
-					<Breadcrumbs currentLocationText="{i18n>home}"/>
-				</f:breadcrumbs>
-				<f:actions>
-					<ToolbarSpacer/>
-				</f:actions>
-			</f:DynamicPageTitle>
-		</f:title>
-		<!-- DynamicPage Header -->
-		<f:header>
-			<f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
-				<f:content>
-					<!-- Filters -->
-					<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
-						<fb:filterGroupItems>
-							<!-- Contract Input Filter -->
-							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
-								<fb:control>
-									<Input type="Number"/>
-								</fb:control>
-							</fb:FilterGroupItem>
-							<!-- Provider Input Filter -->
-							<fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
-								<fb:control>
-									<Input type="Text"/>
-								</fb:control>
-							</fb:FilterGroupItem>
-						</fb:filterGroupItems>
-					</fb:FilterBar>
-				</f:content>
-			</f:DynamicPageHeader>
-		</f:header>
-		<!-- DynamicPage Content -->
-		<f:content>
-			<!-- Tab Filter -->
-			<IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}"  selectedKey="A" >
-				<items>
-					<IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="0" text="{i18n>contratos_activos_label}" key="A"/>
-					<IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="0" text="{i18n>contratos_finalizados_label}" key="F"/>
-					<!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
-				</items>
-				<content>
-					<VBox width="100%" direction="Column" id="__vbox1">
-						<Table id="table" width="auto" items="{/ContratosSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
-							<columns>
-								<Column id="nameColumn">
-									<Text text="{/#Contratos/IdContrato/@sap:label}" id="nameColumnTitle"/>
-								</Column>
-							</columns>
-							<items>
-								<ColumnListItem type="Navigation" press=".onPress">
-									<cells>
-										<ObjectIdentifier title="{IdContrato}"/>
-									</cells>
-								</ColumnListItem>
-							</items>
-						</Table>
-					</VBox>
-				</content>
-			</IconTabBar>
-		</f:content>
-		<!-- DynamicPage Footer-->
-		<f:footer>
-			<OverflowToolbar>
-				<content>
-					<ToolbarSpacer/>
-					<Button text="{i18n>boton_mostrar_ariba_label}" type="Emphasized" press=".onAriba"/>
-				</content>
-			</OverflowToolbar>
-		</f:footer>
-	</f:DynamicPage>
+<mvc:View xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:f="sap.f"
+    xmlns:semantic="sap.f.semantic" controllerName="pampa.comunicacionesformales.contratos.controller.Worklist">
+    <f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
+        <!-- DynamicPage Title -->
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{i18n>worklistTitle}"/>
+                </f:heading>
+                <f:snappedTitleOnMobile>
+                    <Title text="{i18n>appDescription}"/>
+                </f:snappedTitleOnMobile>
+                <f:breadcrumbs>
+                    <Breadcrumbs currentLocationText="{i18n>home}"/>
+                </f:breadcrumbs>
+                <f:actions>
+                    <ToolbarSpacer/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <!-- DynamicPage Header -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
+                <f:content>
+                    <!-- Filters -->
+                    <fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
+                        <fb:filterGroupItems>
+                            <!-- Contract Input Filter -->
+                            <fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <Input type="Number"/>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <!-- Provider Input Filter -->
+                            <fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <Input type="Text"/>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <!-- DynamicPage Content -->
+        <f:content>
+            <!-- Tab Filter -->
+            <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}" selectedKey="A">
+                <items>
+                    <IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="0" text="{i18n>contratos_activos_label}" key="A"/>
+                    <IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="0" text="{i18n>contratos_finalizados_label}" key="F"/>
+                    <!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
+                </items>
+                <content>
+                    <VBox width="100%" direction="Column" id="__vbox1">
+                        <Table id="table" width="auto" items="{/ContratosSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
+                            <columns>
+                                <Column id="idContratoCol">
+                                    <Text text="{/#Contratos/IdContrato/@sap:label}" id="idContratoColTit"/>
+                                </Column>
+                                <Column id="closeContractCol" hAlign="End">
+                                    <Text text="{i18n>closeContract}" id="closeColTitle"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem type="Navigation" press=".onPress">
+                                    <cells>
+                                        <ObjectIdentifier title="{IdContrato}"/>
+                                        <Button icon="sap-icon://journey-depart" type="Transparent" tooltip="{i18n>closeContract}" press=".onCloseContract"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </VBox>
+                </content>
+            </IconTabBar>
+        </f:content>
+        <!-- DynamicPage Footer-->
+        <f:footer>
+            <OverflowToolbar>
+                <content>
+                    <ToolbarSpacer/>
+                    <Button text="{i18n>boton_mostrar_ariba_label}" type="Emphasized" press=".onAriba"/>
+                </content>
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
 </mvc:View>
