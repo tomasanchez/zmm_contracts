@@ -87,9 +87,14 @@
           "target": ["worklist"]
         },
         {
-          "pattern": "Material_ListSet/{objectId}",
+          "pattern": "Contracts/{objectId}",
           "name": "object",
           "target": ["object"]
+        }
+        ,{
+          "pattern": "Ariba",
+          "name": "ariba",
+          "target": ["ariba"]
         }
       ],
       "targets": {
@@ -98,6 +103,12 @@
           "viewId": "worklist",
           "viewLevel": 1,
           "title": "{i18n>worklistViewTitle}"
+        },
+          "ariba": {
+          "viewName": "Ariba",
+          "viewId": "ariba",
+          "viewLevel": 1,
+          "title": "{i18n>aribaViewTitle}"
         },
         "object": {
           "viewName": "Object",
