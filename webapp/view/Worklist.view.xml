@@ -59,6 +59,13 @@
                 <content>
                     <VBox width="100%" direction="Column" id="__vbox1">
                         <Table id="table" width="auto" items="{/ContratosSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="{worklistView>/worklistTableTitle}"/>
+                                        <ToolbarSpacer/>
+                                    <Button icon="sap-icon://refresh" press=".onRefresh"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
                             <columns>
                                 <Column id="idContratoCol">
                                     <Text text="{/#Contratos/IdContrato/@sap:label}" id="idContratoColTit"/>
