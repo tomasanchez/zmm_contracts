@@ -1,81 +1,63 @@
-<mvc:View 
-	xmlns="sap.m" 
-	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns:core="sap.ui.core" 
-	xmlns:l="sap.ui.layout" 
-	xmlns:fb="sap.ui.comp.filterbar" 
-	xmlns:f="sap.f" 
-	xmlns:semantic="sap.f.semantic" controllerName="pampa.comunicacionesformales.contratos.controller.Ariba">
-	<f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
-		<!-- DynamicPage Title -->
-		<f:title>
-			<f:DynamicPageTitle>
-				<f:heading>
-					<Title text="{i18n>aribaTitle}"/>
-				</f:heading>
-				<f:snappedTitleOnMobile>
-					<Title text="{i18n>aribaTitle}"/>
-				</f:snappedTitleOnMobile>
-				<f:breadcrumbs>
-					<Breadcrumbs currentLocationText="Ariba">
-						<Link text="{i18n>home}" press=".onNavBack" />
-					</Breadcrumbs>
-				</f:breadcrumbs>
-				<f:expandedContent>
-					<Label text="{i18n>aribaSubtitle}"/>
-				</f:expandedContent>
-				<f:snappedContent>
-					<Label text="{i18n>aribaSubtitle}"/>
-				</f:snappedContent>
-				<f:actions>
-					<ToolbarSpacer/>
-				</f:actions>
-			</f:DynamicPageTitle>
-		</f:title>
-		<!-- DynamicPage Header -->
-		<f:header>
-			<f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
-				<f:content>
-					<!-- Filters -->
-					<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
-						<fb:filterGroupItems>
-							<!-- Contract Input Filter -->
-							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
-								<fb:control>
-									<Input type="Number"/>
-								</fb:control>
-							</fb:FilterGroupItem>
-							<!-- Provider Input Filter -->
-							<fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
-								<fb:control>
-									<Input type="Text"/>
-								</fb:control>
-							</fb:FilterGroupItem>
-						</fb:filterGroupItems>
-					</fb:FilterBar>
-				</f:content>
-			</f:DynamicPageHeader>
-		</f:header>
-		<!-- DynamicPage Content -->
-		<f:content>
-			<VBox width="100%" direction="Column" id="__vbox1">
-				<Table id="table" width="auto" items="{/ContratosSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
-					<columns>
-						<Column id="nameColumn">
-							<Text text="{/#Contratos/IdContrato/@sap:label}" id="nameColumnTitle"/>
-						</Column>
-					</columns>
-					<items>
-						<ColumnListItem type="Active" press=".onPress">
-							<cells>
-								<ObjectIdentifier title="{IdContrato}"/>
-							</cells>
-						</ColumnListItem>
-					</items>
-				</Table>
-			</VBox>
-		</f:content>
-		<!-- DynamicPage Footer-->
-		<f:footer/>
-	</f:DynamicPage>
+<mvc:View xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:f="sap.f"
+    xmlns:semantic="sap.f.semantic" controllerName="pampa.comunicacionesformales.contratos.controller.Ariba">
+    <f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
+        <!-- DynamicPage Title -->
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{i18n>aribaTitle}"/>
+                </f:heading>
+                <f:snappedTitleOnMobile>
+                    <Title text="{i18n>aribaTitle}"/>
+                </f:snappedTitleOnMobile>
+                <f:breadcrumbs>
+                    <Breadcrumbs currentLocationText="Ariba">
+                        <Link text="{i18n>home}" press=".onNavBack"/>
+                    </Breadcrumbs>
+                </f:breadcrumbs>
+                <f:expandedContent>
+                    <Label text="{i18n>aribaSubtitle}"/>
+                </f:expandedContent>
+                <f:snappedContent>
+                    <Label text="{i18n>aribaSubtitle}"/>
+                </f:snappedContent>
+                <f:actions>
+                    <ToolbarSpacer/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <!-- DynamicPage Header -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
+                <f:content>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <!-- DynamicPage Content -->
+        <f:content>
+            <VBox width="100%" direction="Column" id="__vbox1" class="sapUiResponsiveContentPadding">
+                <Table id="table" width="auto" items="{/ContratosAribaSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
+                    <columns>
+                        <Column id="nameColumn">
+                            <Text text="{/#ContratosAriba/IdAriba/@sap:label}" id="nameColumnTitle"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Active" press=".onPress">
+                            <cells>
+                                <ObjectIdentifier title="{IdAriba}" text="{Titulo}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </f:content>
+        <!-- DynamicPage Footer-->
+        <f:footer/>
+    </f:DynamicPage>
 </mvc:View>

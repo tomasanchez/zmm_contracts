@@ -1,10 +1,4 @@
-<mvc:View xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core"
-    xmlns:l="sap.ui.layout"
-    xmlns:fb="sap.ui.comp.filterbar"
-    xmlns:f="sap.f"
-    xmlns:semantic="sap.f.semantic" controllerName="pampa.comunicacionesformales.contratos.controller.Worklist">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:fb="sap.ui.comp.filterbar" xmlns:f="sap.f" xmlns:semantic="sap.f.semantic" controllerName="pampa.comunicacionesformales.contratos.controller.Worklist">
     <f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
         <!-- DynamicPage Title -->
         <f:title>
@@ -52,8 +46,8 @@
             <!-- Tab Filter -->
             <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expandable="false" expanded="{device>/isNoPhone}" selectedKey="A">
                 <items>
-                    <IconTabFilter icon="sap-icon://begin" iconColor="Positive" text="{i18n>contratos_activos_label}" key="A"/>
-                    <IconTabFilter icon="sap-icon://compare" iconColor="Critical" text="{i18n>contratos_finalizados_label}" key="F"/>
+                    <IconTabFilter icon="sap-icon://activity-2" iconColor="Positive" text="{i18n>contratos_activos_label}" key="A"/>
+                    <IconTabFilter icon="sap-icon://lateness" iconColor="Negative" text="{i18n>contratos_finalizados_label}" key="F"/>
                     <!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
                 </items>
                 <content>
