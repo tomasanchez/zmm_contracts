@@ -2,7 +2,6 @@
     xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
     xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
     xmlns:sap="http://www.sap.com/Protocols/SAPData">
-    <script/>
     <edmx:DataServices m:DataServiceVersion="2.0">
         <Schema Namespace="ZOD_MM_CONTRATOS_SRV" xml:lang="es" sap:schema-version="1"
             xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -11,219 +10,59 @@
                     <PropertyRef Name="IdContrato"/>
                 </Key>
                 <Property Name="IdContrato" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.compras" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="IdAriba" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Id Ariba" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="IdProv" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Acreedor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NombreProv" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nombre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CatInterna" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Categoria interna" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TipologiaContrato" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Tipología Contrato" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NivelRiesgo" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Nivel de Riesgo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Servicio" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Servicio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Proyecto" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Proyecto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Planta" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Planta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TipologiaContrato" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NivelRiesgo" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Servicio" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Planta" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Proyecto" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EstadoContrato" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdAriba" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Titulo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Título Ariba" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CatInterna" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FechaDesde" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha desde" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FechaHasta" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha hasta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="LimiteMax" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="4" sap:unicode="false" sap:label="Limite máximo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MontoDisp" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="4" sap:unicode="false" sap:label="Monto disponible" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sociedad" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sociedad" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Centro" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Centro" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerenciaSoli" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Gerencia Solicitante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Responsable" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Responsable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Gestor" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Gestor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Controller" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Controller" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ContratosAriba" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IdAriba"/>
+                </Key>
+                <Property Name="IdAriba" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Titulo" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CatInterna" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Categoria interna" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FechaDesde" Type="Edm.DateTime" Nullable="false" Precision="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FechaHasta" Type="Edm.DateTime" Nullable="false" Precision="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Moneda" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Moneda" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
-                <Property Name="EstadoContrato" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Estado Contrato" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="To_Equipamiento" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Equipamiento" FromRole="FromRole_Contratos_Equipamiento" ToRole="ToRole_Contratos_Equipamiento"/>
-                <NavigationProperty Name="SubcontratistasSet" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Subcontratistas" FromRole="FromRole_Contratos_Subcontratistas" ToRole="ToRole_Contratos_Subcontratistas"/>
-                <NavigationProperty Name="EmpleadosSet" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Empleados" FromRole="FromRole_Contratos_Empleados" ToRole="ToRole_Contratos_Empleados"/>
-                <NavigationProperty Name="DocumentosSet" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Documentos" FromRole="FromRole_Contratos_Documentos" ToRole="ToRole_Contratos_Documentos"/>
-                <NavigationProperty Name="AuditoriasSet" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Auditorias" FromRole="FromRole_Contratos_Auditorias" ToRole="ToRole_Contratos_Auditorias"/>
-                <NavigationProperty Name="CapacitacionesSet" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Capacitaciones" FromRole="FromRole_Contratos_Capacitaciones" ToRole="ToRole_Contratos_Capacitaciones"/>
+                <Property Name="LimiteMax" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MontoDisp" Type="Edm.Decimal" Nullable="false" Precision="17" Scale="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sociedad" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sociedad" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Centro" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Centro" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="GerenciaSoli" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Responsable" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Gestor" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Controller" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="ContratoAriba" sap:content-version="1">
+            <EntityType Name="Posicion" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="IdContratoAriba"/>
+                    <PropertyRef Name="IdPosicion"/>
                 </Key>
-                <Property Name="IdContratoAriba" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdPosicion" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Posición" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DescripcionPosicion" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Descripción Posición" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="Proveedor" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="IdProveedor"/>
-                </Key>
-                <Property Name="IdProveedor" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Acreedor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Nombre" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
-            <EntityType Name="Empleados" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Id_Contrato"/>
-                    <PropertyRef Name="NroContrato"/>
-                    <PropertyRef Name="NroEmpleado"/>
-                </Key>
-                <Property Name="Id_Contrato" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NroContrato" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NroEmpleado" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Nombre" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Nombre 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Apellido" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Nombre 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="Contratos" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Empleados" FromRole="ToRole_Contratos_Empleados" ToRole="FromRole_Contratos_Empleados"/>
-            </EntityType>
-            <EntityType Name="Subcontratistas" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Id_Contrato"/>
-                    <PropertyRef Name="NroSubcontratista"/>
-                </Key>
-                <Property Name="Id_Contrato" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NroSubcontratista" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Nombre" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nombre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Apellido" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nombre 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="Contratos" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Subcontratistas" FromRole="ToRole_Contratos_Subcontratistas" ToRole="FromRole_Contratos_Subcontratistas"/>
-            </EntityType>
-            <EntityType Name="EmpleadosSubcontratistas" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="NroSubcontratista"/>
-                    <PropertyRef Name="NroSubconEmpleado"/>
-                </Key>
-                <Property Name="NroSubcontratista" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NroSubconEmpleado" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Nombre" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nombre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Apellido" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Nombre 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
-            <EntityType Name="Documentos" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Id_Contrato"/>
-                    <PropertyRef Name="IdDoc"/>
-                </Key>
-                <Property Name="Id_Contrato" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Doc.compras" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="IdDoc" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Descripcion" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="Contratos" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Documentos" FromRole="ToRole_Contratos_Documentos" ToRole="FromRole_Contratos_Documentos"/>
-            </EntityType>
-            <EntityType Name="Equipamiento" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="IdContrato"/>
-                    <PropertyRef Name="NroEquipamiento"/>
-                </Key>
-                <Property Name="IdContrato" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NroEquipamiento" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Descripcion" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
-            <EntityType Name="Auditorias" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Id_Contrato"/>
-                    <PropertyRef Name="IdAuditoria"/>
-                </Key>
-                <Property Name="Id_Contrato" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="IdAuditoria" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Descripcion" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="Contratos" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Auditorias" FromRole="ToRole_Contratos_Auditorias" ToRole="FromRole_Contratos_Auditorias"/>
-            </EntityType>
-            <EntityType Name="Capacitaciones" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Id_Contrato"/>
-                    <PropertyRef Name="IdCapacitacion"/>
-                </Key>
-                <Property Name="Id_Contrato" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="IdCapacitacion" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Descripcion" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="Contratos" Relationship="ZOD_MM_CONTRATOS_SRV.Contratos_Capacitaciones" FromRole="ToRole_Contratos_Capacitaciones" ToRole="FromRole_Contratos_Capacitaciones"/>
-            </EntityType>
-            <Association Name="Contratos_Empleados" sap:content-version="1">
-                <End Type="ZOD_MM_CONTRATOS_SRV.Contratos" Multiplicity="1" Role="FromRole_Contratos_Empleados"/>
-                <End Type="ZOD_MM_CONTRATOS_SRV.Empleados" Multiplicity="*" Role="ToRole_Contratos_Empleados"/>
-                <ReferentialConstraint>
-                    <Principal Role="FromRole_Contratos_Empleados">
-                        <PropertyRef Name="IdContrato"/>
-                    </Principal>
-                    <Dependent Role="ToRole_Contratos_Empleados">
-                        <PropertyRef Name="Id_Contrato"/>
-                    </Dependent>
-                </ReferentialConstraint>
-            </Association>
-            <Association Name="Contratos_Subcontratistas" sap:content-version="1">
-                <End Type="ZOD_MM_CONTRATOS_SRV.Contratos" Multiplicity="1" Role="FromRole_Contratos_Subcontratistas"/>
-                <End Type="ZOD_MM_CONTRATOS_SRV.Subcontratistas" Multiplicity="*" Role="ToRole_Contratos_Subcontratistas"/>
-                <ReferentialConstraint>
-                    <Principal Role="FromRole_Contratos_Subcontratistas">
-                        <PropertyRef Name="IdContrato"/>
-                    </Principal>
-                    <Dependent Role="ToRole_Contratos_Subcontratistas">
-                        <PropertyRef Name="Id_Contrato"/>
-                    </Dependent>
-                </ReferentialConstraint>
-            </Association>
-            <Association Name="Contratos_Documentos" sap:content-version="1">
-                <End Type="ZOD_MM_CONTRATOS_SRV.Contratos" Multiplicity="1" Role="FromRole_Contratos_Documentos"/>
-                <End Type="ZOD_MM_CONTRATOS_SRV.Documentos" Multiplicity="*" Role="ToRole_Contratos_Documentos"/>
-                <ReferentialConstraint>
-                    <Principal Role="FromRole_Contratos_Documentos">
-                        <PropertyRef Name="IdContrato"/>
-                    </Principal>
-                    <Dependent Role="ToRole_Contratos_Documentos">
-                        <PropertyRef Name="Id_Contrato"/>
-                    </Dependent>
-                </ReferentialConstraint>
-            </Association>
-            <Association Name="Contratos_Auditorias" sap:content-version="1">
-                <End Type="ZOD_MM_CONTRATOS_SRV.Contratos" Multiplicity="1" Role="FromRole_Contratos_Auditorias"/>
-                <End Type="ZOD_MM_CONTRATOS_SRV.Auditorias" Multiplicity="*" Role="ToRole_Contratos_Auditorias"/>
-                <ReferentialConstraint>
-                    <Principal Role="FromRole_Contratos_Auditorias">
-                        <PropertyRef Name="IdContrato"/>
-                    </Principal>
-                    <Dependent Role="ToRole_Contratos_Auditorias">
-                        <PropertyRef Name="Id_Contrato"/>
-                    </Dependent>
-                </ReferentialConstraint>
-            </Association>
-            <Association Name="Contratos_Capacitaciones" sap:content-version="1">
-                <End Type="ZOD_MM_CONTRATOS_SRV.Contratos" Multiplicity="1" Role="FromRole_Contratos_Capacitaciones"/>
-                <End Type="ZOD_MM_CONTRATOS_SRV.Capacitaciones" Multiplicity="*" Role="ToRole_Contratos_Capacitaciones"/>
-                <ReferentialConstraint>
-                    <Principal Role="FromRole_Contratos_Capacitaciones">
-                        <PropertyRef Name="IdContrato"/>
-                    </Principal>
-                    <Dependent Role="ToRole_Contratos_Capacitaciones">
-                        <PropertyRef Name="Id_Contrato"/>
-                    </Dependent>
-                </ReferentialConstraint>
-            </Association>
-            <Association Name="Contratos_Equipamiento" sap:content-version="1">
-                <End Type="ZOD_MM_CONTRATOS_SRV.Contratos" Multiplicity="1" Role="FromRole_Contratos_Equipamiento"/>
-                <End Type="ZOD_MM_CONTRATOS_SRV.Equipamiento" Multiplicity="*" Role="ToRole_Contratos_Equipamiento"/>
-                <ReferentialConstraint>
-                    <Principal Role="FromRole_Contratos_Equipamiento">
-                        <PropertyRef Name="IdContrato"/>
-                    </Principal>
-                    <Dependent Role="ToRole_Contratos_Equipamiento">
-                        <PropertyRef Name="IdContrato"/>
-                    </Dependent>
-                </ReferentialConstraint>
-            </Association>
             <EntityContainer Name="ZOD_MM_CONTRATOS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="ContratosSet" EntityType="ZOD_MM_CONTRATOS_SRV.Contratos" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="ContratoAribaSet" EntityType="ZOD_MM_CONTRATOS_SRV.ContratoAriba" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="ProveedorSet" EntityType="ZOD_MM_CONTRATOS_SRV.Proveedor" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="EmpleadosSet" EntityType="ZOD_MM_CONTRATOS_SRV.Empleados" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="SubcontratistasSet" EntityType="ZOD_MM_CONTRATOS_SRV.Subcontratistas" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="EmpleadosSubcontratistasSet" EntityType="ZOD_MM_CONTRATOS_SRV.EmpleadosSubcontratistas" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="DocumentosSet" EntityType="ZOD_MM_CONTRATOS_SRV.Documentos" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="EquipamientoSet" EntityType="ZOD_MM_CONTRATOS_SRV.Equipamiento" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="AuditoriasSet" EntityType="ZOD_MM_CONTRATOS_SRV.Auditorias" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="CapacitacionesSet" EntityType="ZOD_MM_CONTRATOS_SRV.Capacitaciones" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <AssociationSet Name="Contratos_AuditoriasSet" Association="ZOD_MM_CONTRATOS_SRV.Contratos_Auditorias" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="ContratosSet" Role="FromRole_Contratos_Auditorias"/>
-                    <End EntitySet="AuditoriasSet" Role="ToRole_Contratos_Auditorias"/>
-                </AssociationSet>
-                <AssociationSet Name="Contratos_CapacitacionesSet" Association="ZOD_MM_CONTRATOS_SRV.Contratos_Capacitaciones" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="ContratosSet" Role="FromRole_Contratos_Capacitaciones"/>
-                    <End EntitySet="CapacitacionesSet" Role="ToRole_Contratos_Capacitaciones"/>
-                </AssociationSet>
-                <AssociationSet Name="Contratos_EmpleadosSet" Association="ZOD_MM_CONTRATOS_SRV.Contratos_Empleados" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="ContratosSet" Role="FromRole_Contratos_Empleados"/>
-                    <End EntitySet="EmpleadosSet" Role="ToRole_Contratos_Empleados"/>
-                </AssociationSet>
-                <AssociationSet Name="Contratos_EquipamientoSet" Association="ZOD_MM_CONTRATOS_SRV.Contratos_Equipamiento" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="ContratosSet" Role="FromRole_Contratos_Equipamiento"/>
-                    <End EntitySet="EquipamientoSet" Role="ToRole_Contratos_Equipamiento"/>
-                </AssociationSet>
-                <AssociationSet Name="Contratos_DocumentosSet" Association="ZOD_MM_CONTRATOS_SRV.Contratos_Documentos" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="ContratosSet" Role="FromRole_Contratos_Documentos"/>
-                    <End EntitySet="DocumentosSet" Role="ToRole_Contratos_Documentos"/>
-                </AssociationSet>
-                <AssociationSet Name="Contratos_SubcontratistasSet" Association="ZOD_MM_CONTRATOS_SRV.Contratos_Subcontratistas" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="ContratosSet" Role="FromRole_Contratos_Subcontratistas"/>
-                    <End EntitySet="SubcontratistasSet" Role="ToRole_Contratos_Subcontratistas"/>
-                </AssociationSet>
+                <EntitySet Name="ContratosAribaSet" EntityType="ZOD_MM_CONTRATOS_SRV.ContratosAriba" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PosicionSet" EntityType="ZOD_MM_CONTRATOS_SRV.Posicion" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
             </EntityContainer>
             <atom:link rel="self" href="https://darawvlap01.pam.dns:44301/sap/opu/odata/sap/ZOD_MM_CONTRATOS_SRV/$metadata"
                 xmlns:atom="http://www.w3.org/2005/Atom"/>
