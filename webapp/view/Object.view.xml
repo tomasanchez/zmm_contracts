@@ -28,10 +28,10 @@
 		<!-- DynamicPage Content -->
 		<f:content>
 			<!-- Tab Filter -->
-			<IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}">
+			<IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}"  visible="false" >
 				<items>
-					<IconTabFilter icon="sap-icon://employee" iconColor="Default" count="0" text="{i18n>contratos_activos_label}" key="EmpleadosSet"/>
-					<IconTabFilter icon="sap-icon://decision" iconColor="Neutral" count="0" text="{i18n>contratos_finalizados_label}" key="F"/>
+					<IconTabFilter icon="sap-icon://employee" iconColor="Default"  text="{i18n>contratos_activos_label}" key="EmpleadosSet"/>
+					<IconTabFilter icon="sap-icon://decision" iconColor="Neutral"  text="{i18n>contratos_finalizados_label}" key="F"/>
 					<!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
 				</items>
 				<content/>
