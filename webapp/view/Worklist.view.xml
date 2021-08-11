@@ -50,10 +50,10 @@
         <!-- DynamicPage Content -->
         <f:content>
             <!-- Tab Filter -->
-            <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop"  expandable="false"  expanded="{device>/isNoPhone}" selectedKey="A">
+            <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expandable="false" expanded="{device>/isNoPhone}" selectedKey="A">
                 <items>
-                    <IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="0" text="{i18n>contratos_activos_label}" key="A"/>
-                    <IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="0" text="{i18n>contratos_finalizados_label}" key="F"/>
+                    <IconTabFilter icon="sap-icon://begin" iconColor="Positive" text="{i18n>contratos_activos_label}" key="A"/>
+                    <IconTabFilter icon="sap-icon://compare" iconColor="Critical" text="{i18n>contratos_finalizados_label}" key="F"/>
                     <!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
                 </items>
                 <content>
@@ -62,13 +62,22 @@
                             <headerToolbar>
                                 <OverflowToolbar>
                                     <Title text="{worklistView>/worklistTableTitle}"/>
-                                        <ToolbarSpacer/>
+                                    <ToolbarSpacer/>
                                     <Button icon="sap-icon://refresh" press=".onRefresh"/>
                                 </OverflowToolbar>
                             </headerToolbar>
                             <columns>
                                 <Column id="idContratoCol">
                                     <Text text="{/#Contratos/IdContrato/@sap:label}" id="idContratoColTit"/>
+                                </Column>
+                                <Column id="supplierCol">
+                                    <Text text="{/#Contratos/NombreProv/@sap:label}" id="supplierColTit"/>
+                                </Column>
+                                <Column id="companyCol">
+                                    <Text text="{/#Contratos/Sociedad/@sap:label}" id="companyColTit"/>
+                                </Column>
+                                <Column id="responsibleCol">
+                                    <Text text="{/#Contratos/Responsable/@sap:label}" id="responsibleColTit"/>
                                 </Column>
                                 <Column id="closeContractCol" hAlign="End">
                                     <Text text="{i18n>closeContract}" id="closeColTitle"/>
@@ -78,6 +87,9 @@
                                 <ColumnListItem type="Navigation" press=".onPress">
                                     <cells>
                                         <ObjectIdentifier title="{IdContrato}"/>
+                                        <Text text="{NombreProv}"/>
+                                        <Text text="{Sociedad}"/>
+                                        <Text text="{Responsable}"/>
                                         <Button icon="sap-icon://journey-depart" type="Transparent" tooltip="{i18n>closeContract}" press=".onCloseContract"/>
                                     </cells>
                                 </ColumnListItem>
