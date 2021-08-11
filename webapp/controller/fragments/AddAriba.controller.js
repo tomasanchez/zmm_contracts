@@ -26,10 +26,10 @@ sap.ui.define(
 
         /**
          *
-         * @param {*} parent
-         * @param {*} fragment
-         * @param {*} callback
-         * @param {*} data
+         * @param {sap.ui.core.mvc.Controller} parent the parent view's controller
+         * @param {sap.m.Dialog} fragment the dialog fragment
+         * @param {() => void} callback an optional callback function
+         * @param {object} data passed information
          */
         onBeforeShow: function (parent, fragment, callback, data) {
           oController = this;
@@ -51,30 +51,41 @@ sap.ui.define(
         /* =========================================================== */
         /* event handlers                                              */
         /* =========================================================== */
-        onClose: function () {
+
+        /**
+         * Event handler when Close button is pressed
+         * @param {sap.ui.base.Event} oEvent the button press
+         * @public
+         */
+        onClose: function (oEvent) {
           this.callback?.call(this.parent);
           this.fragment.close();
         },
 
-        onSave: function () {
-          var bValidationError = false,
-            bChanges = this._verifyChanges();
-
-          bValidationError = bValidationError || this._verifyInput();
-
-          if (bValidationError) {
-            return;
-          } else if (bChanges) {
-            this.onClose();
-          } else {
-            this._updateMaterial();
-          }
-
-          return;
+        /**
+         * Event handler when an Accept button is pressed
+         * @param {sap.ui.base.Event} oEvent the button press
+         * @public
+         */
+        onAccept: function (oEvent) {
+          MessageBox.confirm(this.parent.readFromI18n("confirmAribaMSG"), {
+            onClose: function (sAction) {
+              sAction == MessageBox.Action.OK && this._confirmImport();
+            }.bind(this),
+          });
         },
         /* =========================================================== */
         /* internal methods                                            */
         /* =========================================================== */
+        /**
+         * Confirms an Ariba Contract Import.
+         * Makes corresponding HTTP Request.
+         * @private
+         */
+        _confirmImport: function () {
+          MessageToast.show("OK");
+          this.onClose();
+        },
       }
     );
   }
