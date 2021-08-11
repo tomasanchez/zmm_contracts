@@ -166,6 +166,11 @@ sap.ui.define(
           oTable.getBinding("items").refresh();
         },
 
+        /**
+         * Event handler when Ariba button is pressed
+         * @param {sap.ui.base.Event} oEvent the button press
+         * @public
+         */
         onAriba: function (oEvent) {
           this.getRouter().navTo("ariba");
         },
