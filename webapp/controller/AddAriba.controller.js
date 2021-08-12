@@ -125,19 +125,15 @@ sap.ui.define(
 
           delete oData.__metadata;
 
-          this.getModel().create(
-            this.getView().getBindingContext().getPath(),
-            oData,
-            {
-              succes: function (oResponse) {
-                sap.m.MessageToast.show("OK");
-                this.navTo("worklist");
-              }.bind(this),
-              error: function (oError) {
-                sap.m.MessageBox.error(oError);
-              },
-            }
-          );
+          this.getModel().create("/ContratosSet", oData, {
+            success: function (oResponse) {
+              sap.m.MessageToast.show("OK");
+              this.navTo("worklist");
+            }.bind(this),
+            error: function (oError) {
+              sap.m.MessageBox.error(oError);
+            },
+          });
         },
 
         /**
