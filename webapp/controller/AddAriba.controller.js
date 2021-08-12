@@ -117,8 +117,22 @@ sap.ui.define(
          * @private
          */
         _confirmImport: function () {
-          sap.m.MessageToast.show("OK");
-          this.navTo("worklist");
+          this.getModel().create(
+            this.getView().getBindingContext().getPath(),
+            {
+              ...this._getFormModel().getData(),
+              ...this.getView().getBindingContext().getObject(),
+            },
+            {
+              succes: function (oResponse) {
+                sap.m.MessageToast.show("OK");
+                this.navTo("worklist");
+              }.bind(this),
+              error: function (oError) {
+                sap.m.MessageBox.error(oError);
+              },
+            }
+          );
         },
 
         /**
