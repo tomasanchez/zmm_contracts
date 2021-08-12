@@ -102,7 +102,7 @@ sap.ui.define(
          */
         onPress: function (oEvent) {
           // The source is the list item that got pressed
-          this.openDialog("AddAriba");
+          this._showObject(oEvent.getSource());
         },
 
         /**
@@ -156,8 +156,8 @@ sap.ui.define(
          * @private
          */
         _showObject: function (oItem) {
-          this.getRouter().navTo("object", {
-            objectId: oItem.getBindingContext().getProperty("IdContrato"),
+          this.getRouter().navTo("addAriba", {
+            objectId: oItem.getBindingContext().getProperty("IdAriba"),
           });
         },
 
