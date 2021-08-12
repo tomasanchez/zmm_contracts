@@ -198,6 +198,7 @@ sap.ui.define(
          * @private
          */
         _updateObject: function (sPath, oData) {
+          oData.EstadoContrato = "F";
           this.getModel().update(sPath, oData, {
             success: function (oResponse) {
               MessageToast.show(this.readFromI18n("okUpdate"));
