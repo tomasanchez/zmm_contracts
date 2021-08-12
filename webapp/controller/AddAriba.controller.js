@@ -117,12 +117,17 @@ sap.ui.define(
          * @private
          */
         _confirmImport: function () {
+          // In order to remove not wanted metadata
+          let oData = {
+            ...this._getFormModel().getData(),
+            ...this.getView().getBindingContext().getObject(),
+          };
+
+          delete oData.__metadata;
+
           this.getModel().create(
             this.getView().getBindingContext().getPath(),
-            {
-              ...this._getFormModel().getData(),
-              ...this.getView().getBindingContext().getObject(),
-            },
+            oData,
             {
               succes: function (oResponse) {
                 sap.m.MessageToast.show("OK");
