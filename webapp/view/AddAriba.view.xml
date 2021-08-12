@@ -3,9 +3,8 @@
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:core="sap.ui.core" 
 	xmlns:form="sap.ui.layout.form" 
-	xmlns:f="sap.f" 
-	controllerName="pampa.comunicacionesformales.contratos.controller.AddAriba">
-	<f:DynamicPage id="page" class="sapUiNoContentPadding" showFooter="false">
+	xmlns:f="sap.f" controllerName="pampa.comunicacionesformales.contratos.controller.AddAriba">
+	<f:DynamicPage id="page" class="sapUiNoContentPadding" showFooter="true">
 		<!-- DynamicPage Title -->
 		<f:title>
 			<f:DynamicPageTitle>
@@ -43,27 +42,33 @@
 			<Panel >
 				<form:SimpleForm id="AribaForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>aribaFormTitle}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
 					<form:content>
-						<Label id="categoryLabel" text="{/#Contratos/CatInterna/@sap:label}" />
-						<Select id="categorySelect" ariaLabelledBy="categoryLabel" selectedKey="&quot;&quot;" forceSelection="true">
-							<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+						<Label id="categoryLabel" text="{/#CategoriaInterna/IdCategoria/@sap:label}" />
+						<Select id="categorySelect" ariaLabelledBy="categoryLabel" forceSelection="true" items="{/CategoriaInternaSet}">
+							<core:Item key="{IdCategoria}" text="{DescripcionCategoria}"/>
 						</Select>
-						<Label id="positionLabel" text="{/#Contratos/Planta/@sap:label}" />
-						<Select id="positionSelect" ariaLabelledBy="positionLabel" selectedKey="&quot;&quot;" forceSelection="true">
-							<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+						<Label id="positionLabel" text="{/#Posicion/IdPosicion/@sap:label}" />
+						<Select id="positionSelect" ariaLabelledBy="positionLabel" forceSelection="true" items="{/PosicionSet}">
+							<core:Item key="{IdPosicion}" text="{DescripcionPosicion}"/>
 						</Select>
-						<Label id="riskLevelLabel" text="{/#Contratos/NivelRiesgo/@sap:label}" />
-						<Select id="riskLevelSelect" ariaLabelledBy="riskLevelLabel" selectedKey="&quot;&quot;" forceSelection="true">
-							<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+						<Label id="riskLevelLabel" text="{/#NivelRiesgo/IDNivelRiesgo/@sap:label}" />
+						<Select id="riskLevelSelect" ariaLabelledBy="riskLevelLabel" forceSelection="true" items="{/NivelRiesgoSet}">
+							<core:Item key="{IDNivelRiesgo}" text="{IDNivelRiesgo}"/>
 						</Select>
-						<Label id="typologyLabel" text="{/#Contratos/TipologiaContrato/@sap:label}" />
-						<Select id="typologySelect" ariaLabelledBy="typologyLabel" selectedKey="&quot;&quot;" forceSelection="true">
-							<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+						<Label id="typologyLabel" text="{/#TipologiaContrato/IdTipologia/@sap:label}" />
+						<Select id="typologySelect" ariaLabelledBy="typologyLabel" forceSelection="true" items="{/TipologiaContratoSet}">
+							<core:Item key="{IdTipologia}" text="{DescripcionTipologia}"/>
 						</Select>
 					</form:content>
 				</form:SimpleForm>
 			</Panel>
 		</f:content>
 		<!-- DynamicPage Footer-->
-		<f:footer/>
+		<f:footer>
+			<OverflowToolbar >
+				<ToolbarSpacer/>
+				<Button text="{i18n>accept}" press=".onAccept" type="Emphasized"/>
+				<Button text="{i18n>cancel}" press=".onCancel" type="Default"/>
+			</OverflowToolbar>
+		</f:footer>
 	</f:DynamicPage>
 </mvc:View>
