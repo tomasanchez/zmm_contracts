@@ -57,7 +57,7 @@ sap.ui.define(
          * If not, it will replace the current entry of the browser history with the worklist route.
          * @public
          */
-        onNavBack: function () {
+        onNavBack: function (oEvent) {
           var sPreviousHash = History.getInstance().getPreviousHash();
 
           if (sPreviousHash !== undefined) {
@@ -67,9 +67,32 @@ sap.ui.define(
           }
         },
 
+        /**
+         * Event handler when an Accept button is pressed
+         * @param {sap.ui.base.Event} oEvent the button press
+         * @public
+         */
+        onAccept: function (oEvent) {
+          sap.m.MessageBox.confirm(this.readFromI18n("confirmAribaMSG"), {
+            onClose: function (sAction) {
+              sAction == sap.m.MessageBox.Action.OK && this._confirmImport();
+            }.bind(this),
+          });
+        },
+
         /* =========================================================== */
         /* internal methods                                            */
         /* =========================================================== */
+
+        /**
+         * Confirms an Ariba Contract Import.
+         * Makes corresponding HTTP Request.
+         * @private
+         */
+        _confirmImport: function () {
+          sap.m.MessageToast.show("OK");
+          this.navTo("worklist");
+        },
 
         /**
          * Binds the view to the object path.
