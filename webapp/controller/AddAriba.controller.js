@@ -45,6 +45,8 @@ sap.ui.define(
               // Restore original busy indicator delay for the object view
               oViewModel.setProperty("/delay", iOriginalBusyDelay);
             });
+
+          this._setFormModel();
         },
 
         /* =========================================================== */
@@ -83,6 +85,31 @@ sap.ui.define(
         /* =========================================================== */
         /* internal methods                                            */
         /* =========================================================== */
+
+        /**
+         * Sets the Form Model
+         * @private
+         */
+        _setFormModel: function () {
+          this.setModel(
+            new JSONModel({
+              Posicion: "",
+              CatInterna: "",
+              TipologiaContrato: "",
+              NivelRiesgo: "",
+            }),
+            "form"
+          );
+        },
+
+        /**
+         * Shortcut for obtainning the Form Model
+         * @private
+         * @returns {sap.ui.model.json.JSONModel} the form Model
+         */
+        _getFormModel: function () {
+          return this.getModel("form");
+        },
 
         /**
          * Confirms an Ariba Contract Import.

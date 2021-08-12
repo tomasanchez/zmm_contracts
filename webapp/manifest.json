@@ -90,6 +90,11 @@
           "pattern": "Contracts/{objectId}",
           "name": "object",
           "target": ["object"]
+        },
+                {
+          "pattern": "Ariba/{objectId}",
+          "name": "addAriba",
+          "target": ["addAriba"]
         }
         ,{
           "pattern": "Ariba",
@@ -110,6 +115,13 @@
           "viewLevel": 1,
           "title": "{i18n>aribaViewTitle}"
         },
+          "addAriba": {
+            "viewName": "AddAriba",
+            "viewId": "addAriba",
+            "viewLevel": 2,
+            "title": "{i18n>aribaViewTitle}"
+        }
+        ,
         "object": {
           "viewName": "Object",
           "viewId": "object",
