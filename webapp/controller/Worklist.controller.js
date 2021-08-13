@@ -1,13 +1,27 @@
 sap.ui.define(
   [
-    "./BaseController",
+    "pampa/comunicacionesformales/contratos/controller/BaseController",
     "sap/ui/model/json/JSONModel",
     "../model/formatter",
     "sap/m/MessageToast",
     "sap/m/MessageBox",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+    "sap/ui/base/Object",
   ],
+
+  /**
+   * Worklist Controller.
+   *
+   * @param {pampa.comunicacionesformales.contratos.controller.BaseController} BaseController the main controller provider
+   * @param {sap.ui.model.json.JSONModel} JSONModel the model class for JSON
+   * @param {*} formatter the formatter provider
+   * @param {sap.m.MessageToast} MessageToast toast service provider
+   * @param {sap.m.MessageBox} MessageBox message box service provider
+   * @param {sap.ui.model.Filter} Filter convenience filter manager
+   * @param {sap.ui.model.Filter} FilterOperator convenience filter operator handler
+   * @returns {pampa.comunicacionesformales.contratos.controller.Worklist} The worklsit controller
+   */
   function (
     BaseController,
     JSONModel,
@@ -21,6 +35,10 @@ sap.ui.define(
     return BaseController.extend(
       "pampa.comunicacionesformales.contratos.controller.Worklist",
       {
+        /**
+         * Formatter provider
+         * @private
+         */
         formatter: formatter,
 
         /* =========================================================== */
@@ -29,7 +47,7 @@ sap.ui.define(
 
         /**
          * Called when the worklist controller is instantiated.
-         * @public
+         * @private
          */
         onInit: function () {
           var oViewModel,
@@ -60,6 +78,12 @@ sap.ui.define(
             tableBusyDelay: 0,
           });
           this.setModel(oViewModel, "worklistView");
+
+          /**
+           * Previous selected Key in tab filter.
+           * @private
+           */
+          this.sPreviousKey = this.byId("iconTabBar").getSelectedKey();
 
           // Make sure, busy indication is showing immediately so there is no
           // break after the busy indication for loading the view's meta data is
@@ -115,6 +139,21 @@ sap.ui.define(
         },
 
         /**
+         * Event handler when selection of a tab filter
+         * @param {sap.ui.base.Event} oEvent the filter selection event
+         */
+        onFilterSelect: function (oEvent) {
+          let sKey = oEvent.getSource().getSelectedKey();
+
+          // Cut fast when keys does NOT change, when changes, updates previous key
+          if (sKey == this.sPreviousKey) return;
+          else this.sPreviousKey = sKey;
+
+          this._applySearch(this._getFilters());
+          this.onRefresh();
+        },
+
+        /**
          * Event handler when close action is pressed
          * @param {sap.ui.base.Event} oEvent the button press
          * @public
@@ -124,16 +163,6 @@ sap.ui.define(
             oEvent.getSource().getParent().getBindingContextPath(),
             oEvent.getSource().getParent().getBindingContext().getObject()
           );
-        },
-
-        /**
-         * Event handler for navigating back.
-         * We navigate back in the browser history
-         * @public
-         */
-        onNavBack: function () {
-          // eslint-disable-next-line sap-no-history-manipulation
-          history.go(-1);
         },
 
         onSearch: function (oEvent) {
@@ -180,9 +209,28 @@ sap.ui.define(
         /* =========================================================== */
 
         /**
+         * Obtains all current filters.
+         *
+         * @private
+         * @returns {sap.ui.model.Filter[]} An array of filters for the search
+         */
+        _getFilters: function () {
+          var aTableSearchState = [];
+
+          var sStatus = this.byId("iconTabBar").getSelectedKey?.();
+
+          sStatus &&
+            aTableSearchState.push(
+              new Filter("EstadoContrato", FilterOperator.EQ, sStatus)
+            );
+
+          return aTableSearchState;
+        },
+
+        /**
          * Shows the selected item on the object page
          * On phones a additional history entry is created
-         * @param {sap.m.ObjectListItem} oItem selected Item
+         * @param {sap.m.ColumnListItem} oItem selected Item
          * @private
          */
         _showObject: function (oItem) {
