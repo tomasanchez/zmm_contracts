@@ -1,12 +1,10 @@
 <core:FragmentDefinition 
 	xmlns="sap.m" 
-	xmlns:tnt="sap.tnt" 
-	xmlns:l="sap.ui.layout" 
 	xmlns:f="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core">
 	<Dialog title="{i18n>aribaDialogTitle}" id="aribaDialog">
 		<content>
-			<Panel expanded="true" expandable="false" class="sapUiResponsiveMargin">
+			<Panel expanded="true" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<OverflowToolbar style="Clear">
 						<core:Icon src="sap-icon://detail-view" size="1.5em" id="uploadIcon"/>
@@ -15,7 +13,7 @@
 					</OverflowToolbar>
 				</headerToolbar>
 				<content>
-					<f:SimpleForm id="AribaForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>aribaFormTitle}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:SimpleForm id="AribaForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>aribaFormTitle}" labelSpanXL="3" labelSpanL="3" labelSpanM="3"  adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" columnsXL="1" columnsL="1" singleContainerFullSize="false">
 						<f:content>
 							<Label id="categoryLabel" text="{i18n>categoryLabel}" />
 							<Select id="categorySelect" ariaLabelledBy="categoryLabel" forceSelection="true" selectedKey="{form>/CatInterna}" items="{/CategoriaInternaSet}">
@@ -40,7 +38,7 @@
 		</content>
 		<buttons>
 			<Button text="{i18n>accept}" press="onAccept" type="Emphasized"/>
-			<Button text="{i18n>cancel}" press="onClose" type="Default"/>
+			<Button text="{i18n>cancel}" press="onClose"/>
 		</buttons>
 	</Dialog>
 </core:FragmentDefinition>
