@@ -109,12 +109,6 @@
           "viewLevel": 1,
           "title": "{i18n>worklistViewTitle}"
         },
-          "ariba": {
-          "viewName": "Ariba",
-          "viewId": "ariba",
-          "viewLevel": 1,
-          "title": "{i18n>aribaViewTitle}"
-        },
           "addAriba": {
             "viewName": "AddAriba",
             "viewId": "addAriba",
