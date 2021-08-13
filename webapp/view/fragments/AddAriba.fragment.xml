@@ -5,32 +5,39 @@
 	xmlns:f="sap.ui.layout.form" 
 	xmlns:core="sap.ui.core">
 	<Dialog title="{i18n>aribaDialogTitle}" id="aribaDialog">
-		<l:Grid defaultSpan="L12 M12 S12" width="auto" id="idGrid">
-			<l:content>
-				<VBox class="sapUiSmallMargin">
-					<f:SimpleForm id="SimpleFormDisplay354" editable="true" layout="ResponsiveGridLayout" title="{i18n>aribaFormTitle}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+		<content>
+			<Panel expanded="true" expandable="false" class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<OverflowToolbar style="Clear">
+						<core:Icon src="sap-icon://detail-view" size="1.5em" id="uploadIcon"/>
+						<Title text="{i18n>aribaPaneTitle}"/>
+						<ToolbarSpacer/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<content>
+					<f:SimpleForm id="AribaForm" editable="true" layout="ResponsiveGridLayout" title="{i18n>aribaFormTitle}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
 						<f:content>
-							<Label id="categoryLabel" text="{/#Contratos/CatInterna/@sap:label}" />
-							<Select id="categorySelect" ariaLabelledBy="categoryLabel" selectedKey="&quot;&quot;" forceSelection="true">
-								<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+							<Label id="categoryLabel" text="{i18n>categoryLabel}" />
+							<Select id="categorySelect" ariaLabelledBy="categoryLabel" forceSelection="true" selectedKey="{form>/CatInterna}" items="{/CategoriaInternaSet}">
+								<core:Item key="{IdCategoria}" text="{DescripcionCategoria}"/>
 							</Select>
-							<Label id="positionLabel" text="{/#Contratos/Planta/@sap:label}" />
-							<Select id="positionSelect" ariaLabelledBy="positionLabel" selectedKey="&quot;&quot;" forceSelection="true">
-								<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+							<Label id="positionLabel" text="{i18n>positionLabel}" />
+							<Select id="positionSelect" ariaLabelledBy="positionLabel" forceSelection="true" selectedKey="{form>/Posicion}" items="{/PosicionSet}">
+								<core:Item key="{IdPosicion}" text="{DescripcionPosicion}"/>
 							</Select>
-							<Label id="riskLevelLabel" text="{/#Contratos/NivelRiesgo/@sap:label}" />
-							<Select id="riskLevelSelect" ariaLabelledBy="riskLevelLabel" selectedKey="&quot;&quot;" forceSelection="true">
-								<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+							<Label id="riskLevelLabel" text="{i18n>riskLevelLabel}" />
+							<Select id="riskLevelSelect" ariaLabelledBy="riskLevelLabel" forceSelection="true" selectedKey="{form>/NivelRiesgo}" items="{/NivelRiesgoSet}">
+								<core:Item key="{IDNivelRiesgo}" text="{IDNivelRiesgo}"/>
 							</Select>
-							<Label id="typologyLabel" text="{/#Contratos/TipologiaContrato/@sap:label}" />
-							<Select id="typologySelect" ariaLabelledBy="typologyLabel" selectedKey="&quot;&quot;" forceSelection="true">
-								<core:Item key="&quot;&quot;" text="{i18n>all}"/>
+							<Label id="typologyLabel" text="{i18n>typologyLabel}" />
+							<Select id="typologySelect" ariaLabelledBy="typologyLabel" forceSelection="true" selectedKey="{form>/TipologiaContrato}" items="{/TipologiaContratoSet}">
+								<core:Item key="{IdTipologia}" text="{DescripcionTipologia}"/>
 							</Select>
 						</f:content>
 					</f:SimpleForm>
-				</VBox>
-			</l:content>
-		</l:Grid>
+				</content>
+			</Panel>
+		</content>
 		<buttons>
 			<Button text="{i18n>accept}" press="onAccept" type="Emphasized"/>
 			<Button text="{i18n>cancel}" press="onClose" type="Default"/>
