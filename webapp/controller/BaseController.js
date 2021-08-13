@@ -165,18 +165,18 @@ sap.ui.define(
          * @public
          * @param {string} sName the fragment name
          * @param {object} data passed from the main view to the fragment
+         * @param {function} callbak a function in the controller from where it’s called which can be executed from the fragment controller
          * @param {sap.ui.mvc.Model} model to be set(optional)
          * @param {boolean} updateModelAllways let the function know if it has to update the model every time it opens the dialog or only the first time.
-         * @param {function} callbak a function in the controller from where it’s called which can be executed from the fragment controller
          * @author Tomas A Sanchez
          * @since 07.30.2021
          */
         openDialog: function (
           sName,
           data = {},
+          callback = undefined,
           model = undefined,
-          updateModelAlways = false,
-          callback = undefined
+          updateModelAlways = false
         ) {
           /**
            * the View name-space path
@@ -222,7 +222,12 @@ sap.ui.define(
                 );
               });
           } else {
-            _fragments[id].controller.onUpdateData(data);
+            _fragments[id].controller.onBeforeShow(
+              this,
+              _fragments[id].fragment,
+              callback,
+              data
+            );
             _fragments[id].fragment.open();
           }
         },
