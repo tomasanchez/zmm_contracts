@@ -2,8 +2,7 @@
 	xmlns="sap.m" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns:fb="sap.ui.comp.filterbar" 
-	xmlns:f="sap.f" 
-	controllerName="pampa.comunicacionesformales.contratos.controller.Worklist">
+	xmlns:f="sap.f" controllerName="pampa.comunicacionesformales.contratos.controller.Worklist">
 	<f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
 		<!-- DynamicPage Title -->
 		<f:title>
@@ -32,7 +31,7 @@
 							<!-- Contract Input Filter -->
 							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
 								<fb:control>
-									<Input type="Number"  placeholder="100640083"  maxLength="10"/>
+									<Input type="Number" placeholder="100640083" maxLength="10"/>
 								</fb:control>
 							</fb:FilterGroupItem>
 							<!-- Provider Input Filter -->
@@ -52,7 +51,7 @@
 			<IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expandable="false" expanded="{device>/isNoPhone}" selectedKey="A">
 				<items>
 					<IconTabFilter icon="sap-icon://activity-2" iconColor="Positive" text="{i18n>contratos_activos_label}" key="A"/>
-					<IconTabFilter icon="sap-icon://activity-assigned-to-goal"  iconColor="Neutral" text="{i18n>contratos_finalizados_label}" key="F"/>
+					<IconTabFilter icon="sap-icon://activity-assigned-to-goal" iconColor="Neutral" text="{i18n>contratos_finalizados_label}" key="F"/>
 					<IconTabFilter icon="sap-icon://request" iconColor="Critical" text="{i18n>contratos_pendientes_label}" key="P" />
 				</items>
 				<content>
@@ -83,7 +82,7 @@
 								</Column>
 							</columns>
 							<items>
-								<ColumnListItem type="Navigation" press=".onPress">
+								<ColumnListItem type="{worklistView>/itemType}" press=".onPress" detailPress=".onDetailPress">
 									<cells>
 										<ObjectIdentifier title="{IdContrato}"/>
 										<Text text="{NombreProv}"/>

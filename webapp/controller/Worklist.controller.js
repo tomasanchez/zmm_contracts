@@ -69,6 +69,7 @@ sap.ui.define(
             shareSendEmailSubject: this.getResourceBundle().getText(
               "shareSendEmailWorklistSubject"
             ),
+            itemType: "Navigation",
             shareSendEmailMessage: this.getResourceBundle().getText(
               "shareSendEmailWorklistMessage",
               [location.href]
@@ -141,6 +142,7 @@ sap.ui.define(
         /**
          * Event handler when selection of a tab filter
          * @param {sap.ui.base.Event} oEvent the filter selection event
+         * @public
          */
         onFilterSelect: function (oEvent) {
           let sKey = oEvent.getSource().getSelectedKey();
@@ -148,6 +150,12 @@ sap.ui.define(
           // Cut fast when keys does NOT change, when changes, updates previous key
           if (sKey == this.sPreviousKey) return;
           else this.sPreviousKey = sKey;
+
+          // When the filter is Pendent change type to Detail
+          this.getModel("worklistView").setProperty(
+            "/itemType",
+            sKey == "P" ? "Detail" : "Navigation"
+          );
 
           this._applySearch(this._getFilters());
           this.onRefresh();
@@ -196,12 +204,20 @@ sap.ui.define(
         },
 
         /**
-         * Event handler when Ariba button is pressed
+         * Event Handler for detail press on Column List Item
          * @param {sap.ui.base.Event} oEvent the button press
-         * @public
          */
-        onAriba: function (oEvent) {
-          this.getRouter().navTo("ariba");
+        onDetailPress(oEvent) {
+          var oListBinding = oEvent.getSource().getBindingContext();
+
+          this.openDialog(
+            "Detail",
+            {
+              oData: oListBinding.getObject(),
+              sPath: oListBinding.getPath(),
+            },
+            this.onRefresh
+          );
         },
 
         /* =========================================================== */
