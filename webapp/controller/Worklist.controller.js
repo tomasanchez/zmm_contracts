@@ -70,6 +70,7 @@ sap.ui.define(
               "shareSendEmailWorklistSubject"
             ),
             itemType: "Navigation",
+            showClose: true,
             shareSendEmailMessage: this.getResourceBundle().getText(
               "shareSendEmailWorklistMessage",
               [location.href]
@@ -151,12 +152,7 @@ sap.ui.define(
           if (sKey == this.sPreviousKey) return;
           else this.sPreviousKey = sKey;
 
-          // When the filter is Pendent change type to Detail
-          this.getModel("worklistView").setProperty(
-            "/itemType",
-            sKey == "P" ? "Detail" : "Navigation"
-          );
-
+          this._handleSelectedKey(sKey);
           this._applySearch(this._getFilters(""));
           this.onRefresh();
         },
@@ -243,6 +239,25 @@ sap.ui.define(
             );
 
           return aTableSearchState;
+        },
+
+        /**
+         * Handles models according to selected key of icon tab filter.
+         *
+         * @param {string} sKey the selected key
+         * @private
+         */
+        _handleSelectedKey: function (sKey) {
+          var oViewModel = this.getModel("worklistView");
+
+          // Hides Close Contract if not Active
+          oViewModel.setProperty("/showClose", sKey === "A");
+
+          // Hides Detail if not Pending
+          oViewModel.setProperty(
+            "/itemType",
+            sKey === "P" ? "Detail" : "Navigation"
+          );
         },
 
         /**

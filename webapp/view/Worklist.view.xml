@@ -77,7 +77,7 @@
 								<Column id="responsibleCol">
 									<Text text="{/#Contratos/Responsable/@sap:label}" id="responsibleColTit"/>
 								</Column>
-								<Column id="closeContractCol" hAlign="End">
+								<Column id="closeContractCol" hAlign="End" visible="{worklistView>/showClose}">
 									<Text text="{i18n>closeContract}" id="closeColTitle"/>
 								</Column>
 							</columns>
