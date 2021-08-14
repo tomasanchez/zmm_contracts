@@ -56,7 +56,7 @@
 				</items>
 				<content>
 					<VBox width="100%" direction="Column">
-						<Table id="table" width="auto" items="{/ContratosSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
+						<Table id="table" width="auto"  sticky="ColumnHeaders,HeaderToolbar" items="{/ContratosSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
 							<headerToolbar>
 								<OverflowToolbar>
 									<Title text="{worklistView>/worklistTableTitle}"/>
