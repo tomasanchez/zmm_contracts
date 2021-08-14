@@ -105,6 +105,7 @@ sap.ui.define(
          */
         onAfterRendering: function () {
           this._applySearch(this._getFilters());
+          this.onRefresh();
         },
 
         /* =========================================================== */
