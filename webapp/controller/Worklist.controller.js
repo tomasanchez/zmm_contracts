@@ -157,7 +157,7 @@ sap.ui.define(
             sKey == "P" ? "Detail" : "Navigation"
           );
 
-          this._applySearch(this._getFilters());
+          this._applySearch(this._getFilters(""));
           this.onRefresh();
         },
 
@@ -173,7 +173,7 @@ sap.ui.define(
           );
         },
 
-        onSearch: function (oEvent) {
+        onLiveChange: function (oEvent) {
           if (oEvent.getParameters().refreshButtonPressed) {
             // Search field's 'refresh' button has been pressed.
             // This is visible if you select any master list item.
@@ -181,15 +181,9 @@ sap.ui.define(
             // refresh the list binding.
             this.onRefresh();
           } else {
-            var aTableSearchState = [];
             var sQuery = oEvent.getParameter("query");
 
-            if (sQuery && sQuery.length > 0) {
-              aTableSearchState = [
-                new Filter("IdContrato", FilterOperator.Contains, sQuery),
-              ];
-            }
-            this._applySearch(aTableSearchState);
+            this._applySearch(this._getFilters(sQuery));
           }
         },
 
@@ -227,17 +221,25 @@ sap.ui.define(
         /**
          * Obtains all current filters.
          *
+         * @param {string} [sQuery] the query option
          * @private
          * @returns {sap.ui.model.Filter[]} An array of filters for the search
          */
-        _getFilters: function () {
+        _getFilters: function (sQuery) {
           var aTableSearchState = [];
 
-          var sStatus = this.byId("iconTabBar").getSelectedKey?.();
-
+          // Contract Status Filter
+          let sStatus = this.byId("iconTabBar")?.getSelectedKey?.();
           sStatus &&
             aTableSearchState.push(
               new Filter("EstadoContrato", FilterOperator.EQ, sStatus)
+            );
+
+          // Contract Id Filter
+          let sContractId = sQuery ?? this.byId("contractId")?.getValue?.();
+          sContractId &&
+            aTableSearchState.push(
+              new Filter("IdContrato", FilterOperator.Contains, sContractId)
             );
 
           return aTableSearchState;
