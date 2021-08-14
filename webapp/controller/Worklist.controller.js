@@ -47,6 +47,7 @@ sap.ui.define(
 
         /**
          * Called when the worklist controller is instantiated.
+         * @memberof pampa.comunicacionesformales.contratos.controller.Worklist
          * @private
          */
         onInit: function () {
@@ -94,6 +95,16 @@ sap.ui.define(
             // Restore original busy indicator delay for worklist's table
             oViewModel.setProperty("/tableBusyDelay", iOriginalBusyDelay);
           });
+        },
+
+        /**
+         * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
+         * This hook is the same one that SAPUI5 controls get after being rendered.
+         * @memberof pampa.comunicacionesformales.contratos.controller.Worklist
+         * @private
+         */
+        onAfterRendering: function () {
+          this._applySearch(this._getFilters());
         },
 
         /* =========================================================== */
