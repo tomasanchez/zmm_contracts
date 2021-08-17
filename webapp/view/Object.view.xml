@@ -1,11 +1,10 @@
 <mvc:View controllerName="pampa.comunicacionesformales.contratos.controller.Object" 
 	xmlns="sap.m" 
-	xmlns:tnt="sap.tnt" 
-	xmlns:semantic="sap.m.semantic" 
+	xmlns:layout="sap.ui.layout" 
 	xmlns:f="sap.f" 
 	xmlns:mvc="sap.ui.core.mvc">
 	<!-- Framed DynamicPage -->
-	<f:DynamicPage id="dynamicPageId" preserveHeaderStateOnScroll="true" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" backgroundDesign="List" headerExpanded="{/headerExpanded}" showFooter="false" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding">
+	<f:DynamicPage id="dynamicPageId" preserveHeaderStateOnScroll="true" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" headerExpanded="{/headerExpanded}" class="sapUiNoContentPadding">
 		<!-- DynamicPage Title -->
 		<f:title>
 			<f:DynamicPageTitle>
@@ -22,16 +21,26 @@
 		<!-- DynamicPage Header -->
 		<f:header >
 			<f:DynamicPageHeader pinnable="false">
-				<Title text="{IdContrato}" level="H2"/>
+				<layout:HorizontalLayout allowWrapping="true">
+					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+						<ObjectAttribute title="{/#Contratos/IdProv/@sap:label}" text="{NombreProv}"/>
+						<ObjectAttribute title="{i18n>ObjectView.serviceLabel}" text="{Servicio}"/>
+						<ObjectAttribute title="{i18n>ObjectView.society}" text="{Sociedad}"/>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout>
+						<ObjectAttribute title="{i18n>ObjectView.ContractStatus}"/>
+						<ObjectStatus text="{EstadoContrato}" state="Success" />
+					</layout:VerticalLayout>
+				</layout:HorizontalLayout>
 			</f:DynamicPageHeader>
 		</f:header>
 		<!-- DynamicPage Content -->
 		<f:content>
 			<!-- Tab Filter -->
-			<IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}"  visible="false" >
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expanded="{device>/isNoPhone}" visible="false">
 				<items>
-					<IconTabFilter icon="sap-icon://employee" iconColor="Default"  text="{i18n>contratos_activos_label}" key="EmpleadosSet"/>
-					<IconTabFilter icon="sap-icon://decision" iconColor="Neutral"  text="{i18n>contratos_finalizados_label}" key="F"/>
+					<IconTabFilter icon="sap-icon://employee" text="{i18n>contratos_activos_label}" key="EmpleadosSet"/>
+					<IconTabFilter icon="sap-icon://decision" iconColor="Neutral" text="{i18n>contratos_finalizados_label}" key="F"/>
 					<!-- <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight" /> -->
 				</items>
 				<content/>
