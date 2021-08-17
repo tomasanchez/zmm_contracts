@@ -5,7 +5,7 @@
     {
       "source": "^/sap/(.*)$",
       "target": "/sap/$1",
-      "destination": "BACKEND_SAP_CLONING",
+      "destination": "BACKEND_SAP",
       "authenticationType": "xsuaa",
       "csrfProtection": false
     },
