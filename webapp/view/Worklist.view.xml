@@ -1,103 +1,102 @@
-<mvc:View 
-	xmlns="sap.m" 
-	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns:fb="sap.ui.comp.filterbar" 
-	xmlns:f="sap.f" controllerName="pampa.comunicacionesformales.contratos.controller.Worklist">
-	<f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
-		<!-- DynamicPage Title -->
-		<f:title>
-			<f:DynamicPageTitle>
-				<f:heading>
-					<Title text="{i18n>worklistTitle}"/>
-				</f:heading>
-				<f:snappedTitleOnMobile>
-					<Title text="{i18n>appDescription}"/>
-				</f:snappedTitleOnMobile>
-				<f:breadcrumbs>
-					<Breadcrumbs currentLocationText="{i18n>home}"/>
-				</f:breadcrumbs>
-				<f:actions>
-					<ToolbarSpacer/>
-				</f:actions>
-			</f:DynamicPageTitle>
-		</f:title>
-		<!-- DynamicPage Header -->
-		<f:header>
-			<f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
-				<f:content>
-					<!-- Filters -->
-					<fb:FilterBar id="filterBar" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
-						<fb:filterGroupItems>
-							<!-- Contract Input Filter -->
-							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
-								<fb:control>
-									<Input id="contractId" type="Number"  name="IdContrato" placeholder="100640083" maxLength="10" liveChange=".onLiveChange"/>
-								</fb:control>
-							</fb:FilterGroupItem>
-							<!-- Provider Input Filter -->
-							<fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
-								<fb:control>
-									<Input id="suppliers" placeholder="{i18n>supplierPH2}" name="IdProveedor" change=".onChangeSupplier" valueHelpOnly="true" showValueHelp="true" valueHelpRequest=".onVhRequest"/>
-								</fb:control>
-							</fb:FilterGroupItem>
-						</fb:filterGroupItems>
-					</fb:FilterBar>
-				</f:content>
-			</f:DynamicPageHeader>
-		</f:header>
-		<!-- DynamicPage Content -->
-		<f:content>
-			<!-- Tab Filter -->
-			<IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expandable="false" expanded="{device>/isNoPhone}" selectedKey="A">
-				<items>
-					<IconTabFilter icon="sap-icon://activity-2" iconColor="Positive" text="{i18n>contratos_activos_label}" key="A"/>
-					<IconTabFilter icon="sap-icon://activity-assigned-to-goal" iconColor="Neutral" text="{i18n>contratos_finalizados_label}" key="F"/>
-					<IconTabFilter icon="sap-icon://request" iconColor="Critical" text="{i18n>contratos_pendientes_label}" key="P" />
-				</items>
-				<content>
-					<VBox width="100%" direction="Column">
-						<Table id="table" width="auto"  sticky="ColumnHeaders,HeaderToolbar" items="{/ContratosSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
-							<headerToolbar>
-								<OverflowToolbar>
-									<Title text="{worklistView>/worklistTableTitle}"/>
-									<ToolbarSpacer/>
-									<Button icon="sap-icon://refresh" press=".onRefresh"/>
-								</OverflowToolbar>
-							</headerToolbar>
-							<columns>
-								<Column id="idContratoCol">
-									<Text text="{/#Contratos/IdContrato/@sap:label}" id="idContratoColTit"/>
-								</Column>
-								<Column id="supplierCol">
-									<Text text="{/#Contratos/NombreProv/@sap:label}" id="supplierColTit"/>
-								</Column>
-								<Column id="companyCol">
-									<Text text="{/#Contratos/Sociedad/@sap:label}" id="companyColTit"/>
-								</Column>
-								<Column id="responsibleCol">
-									<Text text="{/#Contratos/Responsable/@sap:label}" id="responsibleColTit"/>
-								</Column>
-								<Column id="closeContractCol" hAlign="End" visible="{worklistView>/showClose}">
-									<Text text="{i18n>closeContract}" id="closeColTitle"/>
-								</Column>
-							</columns>
-							<items>
-								<ColumnListItem type="{worklistView>/itemType}" press=".onPress" detailPress=".onDetailPress">
-									<cells>
-										<ObjectIdentifier title="{IdContrato}"/>
-										<Text text="{NombreProv}"/>
-										<Text text="{Sociedad}"/>
-										<Text text="{Responsable}"/>
-										<Button icon="sap-icon://journey-depart" type="Transparent" tooltip="{i18n>closeContract}" press=".onCloseContract"/>
-									</cells>
-								</ColumnListItem>
-							</items>
-						</Table>
-					</VBox>
-				</content>
-			</IconTabBar>
-		</f:content>
-		<!-- DynamicPage Footer-->
-		<f:footer/>
-	</f:DynamicPage>
+<mvc:View xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:f="sap.f" controllerName="pampa.comunicacionesformales.contratos.controller.Worklist">
+    <f:DynamicPage id="page" stickySubheaderProvider="iconTabBar" class="sapUiNoContentPadding" showFooter="true">
+        <!-- DynamicPage Title -->
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{i18n>worklistTitle}"/>
+                </f:heading>
+                <f:snappedTitleOnMobile>
+                    <Title text="{i18n>appDescription}"/>
+                </f:snappedTitleOnMobile>
+                <f:breadcrumbs>
+                    <Breadcrumbs currentLocationText="{i18n>home}"/>
+                </f:breadcrumbs>
+                <f:actions>
+                    <ToolbarSpacer/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <!-- DynamicPage Header -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
+                <f:content>
+                    <!-- Filters -->
+                    <fb:FilterBar id="filterBar" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
+                        <fb:filterGroupItems>
+                            <!-- Contract Input Filter -->
+                            <fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <Input id="contractId" type="Number" name="IdContrato" placeholder="100640083" maxLength="10" liveChange=".onLiveChange"/>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <!-- Provider Input Filter -->
+                            <fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
+                                <fb:control>
+                                    <Input id="supplierId" placeholder="{i18n>supplierPH2}" name="IdProveedor" change=".onChangeSupplier" valueHelpOnly="true" showValueHelp="true" valueHelpRequest=".onVhRequest"/>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <!-- DynamicPage Content -->
+        <f:content>
+            <!-- Tab Filter -->
+            <IconTabBar id="iconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding sapUiNoMarginTop" expandable="false" expanded="{device>/isNoPhone}" selectedKey="A">
+                <items>
+                    <IconTabFilter icon="sap-icon://activity-2" iconColor="Positive" text="{i18n>contratos_activos_label}" key="A"/>
+                    <IconTabFilter icon="sap-icon://activity-assigned-to-goal" iconColor="Neutral" text="{i18n>contratos_finalizados_label}" key="F"/>
+                    <IconTabFilter icon="sap-icon://request" iconColor="Critical" text="{i18n>contratos_pendientes_label}" key="P" />
+                </items>
+                <content>
+                    <VBox width="100%" direction="Column">
+                        <Table id="table" width="auto" sticky="ColumnHeaders,HeaderToolbar" items="{/ContratosSet}" noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <Title text="{worklistView>/worklistTableTitle}"/>
+                                    <ToolbarSpacer/>
+                                    <Button icon="sap-icon://refresh" press=".onRefresh"/>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column id="idContratoCol">
+                                    <Text text="{/#Contratos/IdContrato/@sap:label}" id="idContratoColTit"/>
+                                </Column>
+                                <Column id="supplierCol">
+                                    <Text text="{/#Contratos/NombreProv/@sap:label}" id="supplierColTit"/>
+                                </Column>
+                                <Column id="companyCol">
+                                    <Text text="{/#Contratos/Sociedad/@sap:label}" id="companyColTit"/>
+                                </Column>
+                                <Column id="responsibleCol">
+                                    <Text text="{/#Contratos/Responsable/@sap:label}" id="responsibleColTit"/>
+                                </Column>
+                                <Column id="closeContractCol" hAlign="End" visible="{worklistView>/showClose}">
+                                    <Text text="{i18n>closeContract}" id="closeColTitle"/>
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem type="{worklistView>/itemType}" press=".onPress" detailPress=".onDetailPress">
+                                    <cells>
+                                        <ObjectIdentifier title="{IdContrato}"/>
+                                        <Text text="{NombreProv}"/>
+                                        <Text text="{Sociedad}"/>
+                                        <Text text="{Responsable}"/>
+                                        <Button icon="sap-icon://journey-depart" type="Transparent" tooltip="{i18n>closeContract}" press=".onCloseContract"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </VBox>
+                </content>
+            </IconTabBar>
+        </f:content>
+        <!-- DynamicPage Footer-->
+        <f:footer/>
+    </f:DynamicPage>
 </mvc:View>
