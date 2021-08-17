@@ -264,7 +264,7 @@ sap.ui.define(
                     let sSupplierID = this.byId("supplierId")?.getValue?.();
                     sSupplierID &&
                         aTableSearchState.push(
-                            new Filter("NombreProv", FilterOperator.EQ, sSupplierID)
+                            new Filter("IdProv", FilterOperator.EQ, sSupplierID)
                         );
 
                     return aTableSearchState;
