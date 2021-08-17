@@ -1,6 +1,6 @@
 sap.ui.define(
   [
-    "pampa/comunicacionesformales/contratos/controller/BaseController",
+    "pampa/comunicacionesformales/contratos/controller/ValueHelp",
     "sap/ui/model/json/JSONModel",
     "../model/formatter",
     "sap/m/MessageToast",

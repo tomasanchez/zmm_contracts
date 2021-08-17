@@ -31,13 +31,13 @@
 							<!-- Contract Input Filter -->
 							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
 								<fb:control>
-									<Input id="contractId" type="Number" placeholder="100640083" maxLength="10" liveChange=".onLiveChange"/>
+									<Input id="contractId" type="Number"  name="IdContrato" placeholder="100640083" maxLength="10" liveChange=".onLiveChange"/>
 								</fb:control>
 							</fb:FilterGroupItem>
 							<!-- Provider Input Filter -->
 							<fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
 								<fb:control>
-									<Input/>
+									<Input id="suppliers" placeholder="{i18n>supplierPH2}" name="IdProveedor" valueHelpOnly="true" showValueHelp="true" valueHelpRequest=".onVhRequest"/>
 								</fb:control>
 							</fb:FilterGroupItem>
 						</fb:filterGroupItems>
