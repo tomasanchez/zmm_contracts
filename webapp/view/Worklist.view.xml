@@ -37,7 +37,7 @@
 							<!-- Provider Input Filter -->
 							<fb:FilterGroupItem groupName="G1" name="B1" label="{i18n>filtro_proveedor_label}" labelTooltip="{i18n>filtro_proveedor_tooltip}" visibleInFilterBar="true">
 								<fb:control>
-									<Input id="suppliers" placeholder="{i18n>supplierPH2}" name="IdProveedor" valueHelpOnly="true" showValueHelp="true" valueHelpRequest=".onVhRequest"/>
+									<Input id="suppliers" placeholder="{i18n>supplierPH2}" name="IdProveedor" change=".onChangeSupplier" valueHelpOnly="true" showValueHelp="true" valueHelpRequest=".onVhRequest"/>
 								</fb:control>
 							</fb:FilterGroupItem>
 						</fb:filterGroupItems>

@@ -196,6 +196,16 @@ sap.ui.define(
         },
 
         /**
+         * Event handler for change in Supplier ID
+         *
+         * @param {sap.ui.base.Event} [oEvent] the change event
+         */
+        onChangeSupplier: function (oEvent) {
+          this._applySearch(this._getFilters());
+          this.onRefresh();
+        },
+
+        /**
          * Event handler for refresh event. Keeps filter, sort
          * and group settings and refreshes the list binding.
          * @public
@@ -248,6 +258,13 @@ sap.ui.define(
           sContractId &&
             aTableSearchState.push(
               new Filter("IdContrato", FilterOperator.Contains, sContractId)
+            );
+
+          // Supplier Id Filter
+          let sSupplierID = this.byId("supplierId")?.getValue?.();
+          sSupplierID &&
+            aTableSearchState.push(
+              new Filter("IdProveedor", FilterOperator.Contains, sSupplierID)
             );
 
           return aTableSearchState;
