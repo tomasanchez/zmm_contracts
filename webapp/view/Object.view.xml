@@ -40,9 +40,9 @@
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
 						<ObjectAttribute title="{i18n>ObjectView.Max}"/>
-						<ObjectNumber number="{LimiteMax}" unit="{Moneda}"/>
+						<ObjectNumber number="{ parts:[{path:'LimiteMax'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" unit="{Moneda}" state="Information"/>
 						<ObjectAttribute title="{i18n>ObjectView.Available}"/>
-						<ObjectNumber number="{MontoDisp}" unit="{Moneda}"/>
+						<ObjectNumber number="{ parts:[{path:'MontoDisp'},{path:'Moneda'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }" unit="{Moneda}" state="Success"/>
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
 						<ObjectAttribute title="{i18n>ObjectView.Supplier}" text="{NombreProv}"/>
