@@ -29,7 +29,7 @@
 					</layout:VerticalLayout>
 					<layout:VerticalLayout>
 						<ObjectAttribute title="{i18n>ObjectView.ContractStatus}"/>
-						<ObjectStatus text="{EstadoContrato}" state="Success" />
+						<ObjectStatus text="{path: 'EstadoContrato', formatter: '.formatter.statusText'}" state="{path: 'EstadoContrato', formatter: '.formatter.statusValueState'}" />
 					</layout:VerticalLayout>
 				</layout:HorizontalLayout>
 			</f:DynamicPageHeader>

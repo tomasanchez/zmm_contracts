@@ -48,5 +48,35 @@ sap.ui.define([], function () {
 
       return dToday >= dDate ? "Error" : "None";
     },
+
+    /**
+     * Translates flag status to text
+     *
+     * @param {string} sStatus the contract status flag
+     * @returns {string} the status text
+     */
+    statusText: (sStatus) => {
+      const htStatusText = {
+        A: "Activo",
+        F: "Finalizado",
+        P: "Pendiente",
+        X: "Desconocido",
+      };
+      return htStatusText[sStatus ?? "X"];
+    },
+
+    /**
+     * Highlighst flag status
+     *
+     * @param {string} sStatus the contract status flag
+     * @returns {string} the status text
+     */
+    statusValueState: (sStatus) => {
+      const htStatus = {
+        A: "Success",
+        F: "None",
+        P: "Warning",
+      };
+    },
   };
 });
