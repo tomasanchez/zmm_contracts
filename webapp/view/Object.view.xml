@@ -31,6 +31,11 @@
 						<ObjectAttribute title="{i18n>ObjectView.ContractStatus}"/>
 						<ObjectStatus text="{path: 'EstadoContrato', formatter: '.formatter.statusText'}" state="{path: 'EstadoContrato', formatter: '.formatter.statusValueState'}" />
 					</layout:VerticalLayout>
+					<layout:VerticalLayout>
+						<ObjectAttribute title="{i18n>ObjectView.CategoryInternal}" text="{CategoriaInterna}"/>
+						<ObjectAttribute title="{i18n>ObjectView.Max}"/>
+						<ObjectNumber number="{LimiteMax}" unit="{Moneda}"/>
+					</layout:VerticalLayout>
 				</layout:HorizontalLayout>
 			</f:DynamicPageHeader>
 		</f:header>
