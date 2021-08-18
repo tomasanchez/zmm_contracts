@@ -9,7 +9,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="{IdContrato}" level="H2"/>
+					<Title text="{IdContrato}" level="H2" tooltip="ID"/>
 				</f:heading>
 				<f:expandedContent>
 					<Label text="{IdAriba}" tooltip="ID Ariba"/>
