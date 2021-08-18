@@ -11,6 +11,12 @@
 				<f:heading>
 					<Title text="{IdContrato}" level="H2"/>
 				</f:heading>
+				<f:expandedContent>
+					<Label text="{IdAriba}" tooltip="ID Ariba"/>
+				</f:expandedContent>
+				<f:snappedContent>
+					<Label text="{IdAriba}" tooltip="ID Ariba"/>
+				</f:snappedContent>
 				<f:breadcrumbs>
 					<Breadcrumbs currentLocationText="{IdContrato}">
 						<Link text="{i18n>home}" press=".onNavBack" />
@@ -22,19 +28,34 @@
 		<f:header >
 			<f:DynamicPageHeader pinnable="false">
 				<layout:HorizontalLayout allowWrapping="true">
-					<layout:VerticalLayout class="sapUiMediumMarginEnd">
+					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
+						<ObjectIdentifier title="{Titulo}"/>
 						<ObjectAttribute title="{/#Contratos/IdProv/@sap:label}" text="{NombreProv}"/>
 						<ObjectAttribute title="{i18n>ObjectView.serviceLabel}" text="{Servicio}"/>
 						<ObjectAttribute title="{i18n>ObjectView.society}" text="{Sociedad}"/>
 					</layout:VerticalLayout>
-					<layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
+						<ObjectAttribute title="{i18n>ObjectView.Project}" text="{Proyecto}" />
 						<ObjectAttribute title="{i18n>ObjectView.ContractStatus}"/>
 						<ObjectStatus text="{path: 'EstadoContrato', formatter: '.formatter.statusText'}" state="{path: 'EstadoContrato', formatter: '.formatter.statusValueState'}" />
 					</layout:VerticalLayout>
-					<layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
 						<ObjectAttribute title="{i18n>ObjectView.CategoryInternal}" text="{CategoriaInterna}"/>
+						<ObjectAttribute title="{i18n>ObjectView.Center}" text="{Centro}"/>
 						<ObjectAttribute title="{i18n>ObjectView.Max}"/>
 						<ObjectNumber number="{LimiteMax}" unit="{Moneda}"/>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
+						<ObjectAttribute title="{i18n>ObjectView.Supplier}" text="{NombreProv}"/>
+						<ObjectAttribute title="{i18n>ObjectView.Typology}" text="{TipologiaContrato}"/>
+						<ObjectAttribute title="{i18n>ObjectView.RiskLevel}" text="{NivelRiesgo}"/>
+						<ObjectAttribute title="{i18n>ObjectView.Plant}" text="{Planta}"/>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiTinyMarginTop">
+						<ObjectAttribute title="{i18n>ObjectView.Gerency}" text="{GerenciaSoli}"/>
+						<ObjectAttribute title="{i18n>WorklistView.Responsible}" text="{Responsable}"/>
+						<ObjectAttribute title="{i18n>WorklistView.Manager}" text="{Gestor}"/>
+						<ObjectAttribute title="{i18n>WorklistView.Controller}" text="{Controller}"/>
 					</layout:VerticalLayout>
 				</layout:HorizontalLayout>
 			</f:DynamicPageHeader>
