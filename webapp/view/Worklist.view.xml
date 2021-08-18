@@ -26,7 +26,7 @@
 			<f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
 				<f:content>
 					<!-- Filters -->
-					<fb:FilterBar id="filterBar" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
+					<fb:FilterBar id="filterBar" showClearOnFB="true" showGoOnFB="false" clear=".onClear">
 						<fb:filterGroupItems>
 							<!-- Contract Input Filter -->
 							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">

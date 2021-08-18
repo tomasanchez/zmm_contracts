@@ -143,6 +143,16 @@ sap.ui.define(
         },
 
         /**
+         * Clears the filterbar.
+         *
+         * @param {sap.ui.base.Event} oEvent the clear button press
+         */
+        onClear(oEvent) {
+          this.byId("contractId").setValue("").fireChange?.();
+          this.byId("supplierId").setValue("").fireChange?.();
+        },
+
+        /**
          * Event handler when a table item gets pressed
          * @param {sap.ui.base.Event} oEvent the table selectionChange event
          * @public
