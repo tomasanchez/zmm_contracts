@@ -328,6 +328,7 @@ sap.ui.define(
           this.getModel().update(sPath, oData, {
             success: function (oResponse) {
               MessageToast.show(this.readFromI18n("okUpdate"));
+              this.onRefresh();
             }.bind(this),
             error: function (oError) {
               MessageBox.error(oError);
