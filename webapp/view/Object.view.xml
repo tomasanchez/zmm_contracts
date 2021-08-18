@@ -27,10 +27,9 @@
 		<!-- DynamicPage Header -->
 		<f:header >
 			<f:DynamicPageHeader pinnable="false">
-				<layout:HorizontalLayout allowWrapping="true">
+				<layout:HorizontalLayout allowWrapping="true" class="sapUiResponsiveMargin">
 					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
-						<ObjectIdentifier title="{Titulo}"/>
-						<ObjectAttribute title="{/#Contratos/IdProv/@sap:label}" text="{NombreProv}"/>
+						<ObjectAttribute title="{i18n>ObjectView.Title}" text="{Titulo}"/>
 						<ObjectAttribute title="{i18n>ObjectView.serviceLabel}" text="{Servicio}"/>
 						<ObjectAttribute title="{i18n>ObjectView.society}" text="{Sociedad}"/>
 					</layout:VerticalLayout>
@@ -40,16 +39,22 @@
 						<ObjectStatus text="{path: 'EstadoContrato', formatter: '.formatter.statusText'}" state="{path: 'EstadoContrato', formatter: '.formatter.statusValueState'}" />
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
-						<ObjectAttribute title="{i18n>ObjectView.CategoryInternal}" text="{CategoriaInterna}"/>
-						<ObjectAttribute title="{i18n>ObjectView.Center}" text="{Centro}"/>
 						<ObjectAttribute title="{i18n>ObjectView.Max}"/>
 						<ObjectNumber number="{LimiteMax}" unit="{Moneda}"/>
+						<ObjectAttribute title="{i18n>ObjectView.Available}"/>
+						<ObjectNumber number="{MontoDisp}" unit="{Moneda}"/>
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
 						<ObjectAttribute title="{i18n>ObjectView.Supplier}" text="{NombreProv}"/>
 						<ObjectAttribute title="{i18n>ObjectView.Typology}" text="{TipologiaContrato}"/>
 						<ObjectAttribute title="{i18n>ObjectView.RiskLevel}" text="{NivelRiesgo}"/>
 						<ObjectAttribute title="{i18n>ObjectView.Plant}" text="{Planta}"/>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout class="sapUiTinyMarginTop sapUiMediumMarginEnd">
+						<ObjectAttribute title="{i18n>ObjectView.Center}" text="{Centro}"/>
+						<ObjectAttribute title="{i18n>ObjectView.CategoryInternal}" text="{CatInterna}"/>
+						<ObjectAttribute title="{i18n>WorklistView.fromDate}" text="{path:'FechaDesde', formatter: '.formatter.localeDate'}"/>
+						<ObjectAttribute title="{i18n>WorklistView.upToDate}" text="{path:'FechaHasta', formatter: '.formatter.localeDate'}"/>
 					</layout:VerticalLayout>
 					<layout:VerticalLayout class="sapUiTinyMarginTop">
 						<ObjectAttribute title="{i18n>ObjectView.Gerency}" text="{GerenciaSoli}"/>

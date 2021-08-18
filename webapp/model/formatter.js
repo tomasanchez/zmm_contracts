@@ -62,7 +62,7 @@ sap.ui.define([], function () {
         P: "Pendiente",
         X: "Desconocido",
       };
-      return htStatusText[sStatus ?? "X"];
+      return htStatusText[sStatus] ?? htStatusText["X"];
     },
 
     /**
@@ -76,7 +76,9 @@ sap.ui.define([], function () {
         A: "Success",
         F: "None",
         P: "Warning",
+        X: "Information",
       };
+      return htStatus[sStatus] ?? htStatus["X"];
     },
   };
 });
