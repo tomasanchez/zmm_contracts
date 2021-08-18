@@ -26,7 +26,7 @@
 			<f:DynamicPageHeader pinnable="false" class="sapUiNoMarginBottom">
 				<f:content>
 					<!-- Filters -->
-					<fb:FilterBar id="filterBar" showClearOnFB="true" showGoOnFB="false" clear=".onClear">
+					<fb:FilterBar id="filterBar" showClearButton="true" showGoOnFB="false" showFilterConfiguration="false">
 						<fb:filterGroupItems>
 							<!-- Contract Input Filter -->
 							<fb:FilterGroupItem groupName="G1" name="A1" label="{i18n>filtro_numero_contrato_label}" labelTooltip="{i18n>filtro_numero_contrato_tooltip}" visibleInFilterBar="true">
@@ -86,7 +86,7 @@
 								<Column id="controllerCol" demandPopin="true">
 									<Label text="{i18n>WorklistView.Controller}" id="controllerColTit"/>
 								</Column>
-								<Column id="closeContractCol" hAlign="End" visible="{worklistView>/showClose}">
+								<Column id="closeContractCol" hAlign="Center" visible="{worklistView>/showClose}">
 									<Label text="{i18n>closeContract}" id="closeColTitle"/>
 								</Column>
 							</columns>
@@ -100,7 +100,7 @@
 										<Text text="{Responsable}"/>
 										<Text text="{Gestor}"/>
 										<Text text="{Controller}"/>
-										<Button width="100%" icon="sap-icon://journey-depart" type="Transparent" tooltip="{i18n>closeContract}" press=".onCloseContract"/>
+										<Button icon="sap-icon://journey-depart" type="Transparent" tooltip="{i18n>closeContract}" press=".onCloseContract"/>
 									</cells>
 								</ColumnListItem>
 							</items>
