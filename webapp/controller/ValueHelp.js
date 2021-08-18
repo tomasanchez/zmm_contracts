@@ -190,10 +190,10 @@ sap.ui.define(
          * Makes oData Request to ClientesSet.
          *
          * @function
+         * @param {array} [aFilters] the filters array
          * @private
-         * @param {array} aFilters the filters array
          */
-        _fetchOdata: function (aFilters) {
+        _fetchOdata: function (aFilters = []) {
           var oModel = this.getModel();
 
           var oValueHelpDialog = oVhController._oValueHelpDialog;
